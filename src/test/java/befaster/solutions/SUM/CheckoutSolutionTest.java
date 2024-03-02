@@ -37,5 +37,6 @@ public class CheckoutSolutionTest {
         assertThat(checkoutSolution.checkout("STX"), equalTo(45));
         assertThat(checkoutSolution.checkout("STXSTX"), equalTo(90));
         assertThat(checkoutSolution.checkout("SSS"), equalTo(45));
+        assertThat(checkoutSolution.checkout("STXS"), equalTo(62));
     }
 }
