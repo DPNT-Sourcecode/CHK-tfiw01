@@ -271,8 +271,8 @@ public class CheckoutSolution {
         int count = 0;
 
         List<String> lis = List.of("1S", "1T", "1X", "1Y", "1Z");
-        for (String eachListItem : lis) {
-            if (items.contains(eachListItem)) {
+        for (String eachListItem : items) {
+            if (lis.contains(eachListItem)) {
                 if (count == 3) {
                     break;
                 }
@@ -422,6 +422,7 @@ public class CheckoutSolution {
         return result;
     }
 }
+
 
 
 
