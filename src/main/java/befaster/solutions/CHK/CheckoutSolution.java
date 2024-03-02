@@ -122,7 +122,7 @@ public class CheckoutSolution {
             }
         }
 
-        total = total - (countF - 1) * priceList.getOrDefault("2F", 0);
+        total = total - (countF - 1) * priceList.getOrDefault("F", 0);
 
         return total;
     }
@@ -228,5 +228,6 @@ public class CheckoutSolution {
         return result;
     }
 }
+
 
 
