@@ -92,7 +92,7 @@ public class CheckoutSolution {
             }
         }
 
-        while (true && count > 0) {
+        while (count > 0 && count > mod) {
             int x = mod % count;
             if (x == 0) {
                 break;
@@ -125,7 +125,7 @@ public class CheckoutSolution {
         String bundle = "";
         List<String> result = new ArrayList<>();
         for (int i = 0; i < items.length; i++) {
-            while (i < items.length - 1 && items[i] == items[i+1] && (items[i] == 'A' || items[i] == 'B')) {
+            while (i < items.length - 1 && items[i] == items[i+1] && (items[i] == 'A' || items[i] == 'B' || items[i] == 'E')) {
                 bundle = bundle.concat(String.valueOf(items[i]));
                 i++;
             }
@@ -138,3 +138,4 @@ public class CheckoutSolution {
         return result;
     }
 }
+
