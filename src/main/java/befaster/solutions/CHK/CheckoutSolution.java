@@ -16,6 +16,7 @@ public class CheckoutSolution {
         priceList.put("2B", 45);
 
         char[] items = skus.toCharArray();
+        Arrays.sort(items);
 
         for (char item : items) {
             if (!priceList.containsKey(String.valueOf(item))) {
@@ -28,4 +29,13 @@ public class CheckoutSolution {
 
         return -1;
     }
+
+    public String decomposeA(String s) {
+        char[] chars = s.toCharArray();
+
+        for (int i = 0; i < chars.length; i++) {
+            for
+        }
+    }
 }
+
