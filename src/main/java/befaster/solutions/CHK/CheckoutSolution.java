@@ -7,26 +7,33 @@ import java.util.HashMap;
 import java.util.List;
 
 public class CheckoutSolution {
-    public Integer checkout(String skus) {
-        HashMap<String, Integer> priceList = new HashMap<>();
-        priceList.put("A", 50);
-        priceList.put("B", 30);
-        priceList.put("C", 20);
-        priceList.put("D", 15);
-        priceList.put("E", 40);
-        priceList.put("F", 10);
-        priceList.put("1A", 50);
-        priceList.put("1B", 30);
-        priceList.put("1C", 20);
-        priceList.put("1D", 15);
-        priceList.put("1E", 40);
-        priceList.put("1F", 10);
-        priceList.put("3A", 130);
-        priceList.put("5A", 200);
-        priceList.put("2B", 45);
-        priceList.put("2E", 80);
-        priceList.put("2F", 20);
 
+    private static priceList
+    private static final List<Character> specialOfferItems =
+        List.of('A', 'B', 'E', 'F', 'H', 'K', 'N', 'P', 'Q', 'R', 'U', 'V');
+
+    static {
+        HashMap<String, Integer> priceList = new HashMap<>();
+        priceList.put("A", 50); priceList.put("B", 30); priceList.put("C", 20); priceList.put("D", 15);
+        priceList.put("E", 40); priceList.put("F", 10); priceList.put("G", 20); priceList.put("H", 10);
+        priceList.put("I", 35); priceList.put("J", 60); priceList.put("K", 80); priceList.put("L", 90);
+        priceList.put("M", 15); priceList.put("N", 40); priceList.put("O", 10); priceList.put("P", 50);
+        priceList.put("Q", 30); priceList.put("R", 50); priceList.put("S", 30); priceList.put("T", 20);
+        priceList.put("U", 40); priceList.put("V", 50); priceList.put("W", 20); priceList.put("X", 90);
+        priceList.put("Y", 10); priceList.put("Z", 50); priceList.put("1A", 50); priceList.put("1B", 30);
+        priceList.put("1C", 20); priceList.put("1D", 15); priceList.put("1E", 40); priceList.put("1F", 10);
+        priceList.put("1G", 20); priceList.put("1H", 10); priceList.put("1I", 35); priceList.put("1J", 60);
+        priceList.put("1K", 80); priceList.put("1L", 90); priceList.put("1M", 15); priceList.put("1N", 40);
+        priceList.put("1O", 10); priceList.put("1P", 50); priceList.put("1Q", 30); priceList.put("1R", 50);
+        priceList.put("1S", 30); priceList.put("1T", 20); priceList.put("1U", 40); priceList.put("1V", 50);
+        priceList.put("1W", 20); priceList.put("1X", 90); priceList.put("1Y", 10); priceList.put("1Z", 50);
+        priceList.put("3A", 130); priceList.put("5A", 200); priceList.put("2B", 45); priceList.put("2E", 80);
+        priceList.put("2F", 20); priceList.put("5H", 45); priceList.put("10H", 80); priceList.put("2K", 150);
+        priceList.put("3N", 80); priceList.put("5P", 200); priceList.put("3Q", 80); priceList.put("3R", 150);
+        priceList.put("3U", 120); priceList.put("2V", 90); priceList.put("3V", 130);
+    }
+
+    public Integer checkout(String skus) {
         char[] items = skus.toCharArray();
         Arrays.sort(items);
 
@@ -61,6 +68,54 @@ public class CheckoutSolution {
 
             if (s.contains("F")) {
                 List<String> nResult = decompose(getIntPrefix(s), 2, 0, getStringSuffix(s));
+                itemsToAdd.addAll(nResult);
+                itemsToRemove.add(s);
+            }
+
+            if (s.contains("H")) {
+                List<String> nResult = decompose(getIntPrefix(s), 5, 10, getStringSuffix(s));
+                itemsToAdd.addAll(nResult);
+                itemsToRemove.add(s);
+            }
+
+            if (s.contains("K")) {
+                List<String> nResult = decompose(getIntPrefix(s), 2, 0, getStringSuffix(s));
+                itemsToAdd.addAll(nResult);
+                itemsToRemove.add(s);
+            }
+
+            if (s.contains("N")) {
+                List<String> nResult = decompose(getIntPrefix(s), 3, 0, getStringSuffix(s));
+                itemsToAdd.addAll(nResult);
+                itemsToRemove.add(s);
+            }
+
+            if (s.contains("P")) {
+                List<String> nResult = decompose(getIntPrefix(s), 5, 0, getStringSuffix(s));
+                itemsToAdd.addAll(nResult);
+                itemsToRemove.add(s);
+            }
+
+            if (s.contains("Q")) {
+                List<String> nResult = decompose(getIntPrefix(s), 3, 0, getStringSuffix(s));
+                itemsToAdd.addAll(nResult);
+                itemsToRemove.add(s);
+            }
+
+            if (s.contains("R")) {
+                List<String> nResult = decompose(getIntPrefix(s), 3, 0, getStringSuffix(s));
+                itemsToAdd.addAll(nResult);
+                itemsToRemove.add(s);
+            }
+
+            if (s.contains("U")) {
+                List<String> nResult = decompose(getIntPrefix(s), 3, 0, getStringSuffix(s));
+                itemsToAdd.addAll(nResult);
+                itemsToRemove.add(s);
+            }
+
+            if (s.contains("V")) {
+                List<String> nResult = decompose(getIntPrefix(s), 2, 3, getStringSuffix(s));
                 itemsToAdd.addAll(nResult);
                 itemsToRemove.add(s);
             }
@@ -220,7 +275,7 @@ public class CheckoutSolution {
         String bundle = "";
         List<String> result = new ArrayList<>();
         for (int i = 0; i < items.length; i++) {
-            while (i < items.length - 1 && items[i] == items[i+1] && (items[i] == 'A' || items[i] == 'B' || items[i] == 'E' || items[i] == 'F')) {
+            while (i < items.length - 1 && items[i] == items[i+1] && (specialOfferItems.contains(items[i]))) {
                 bundle = bundle.concat(String.valueOf(items[i]));
                 i++;
             }
@@ -233,3 +288,4 @@ public class CheckoutSolution {
         return result;
     }
 }
+
