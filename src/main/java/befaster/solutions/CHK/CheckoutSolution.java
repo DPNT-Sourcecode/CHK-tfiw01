@@ -31,8 +31,8 @@ public class CheckoutSolution {
         return -1;
     }
 
-    public List<Integer> decompose(Integer count, Integer mod) {
-        List<Integer> list = new ArrayList<>();
+    public List<String> decompose(Integer count, Integer mod, String s) {
+        List<String> list = new ArrayList<>();
         int sum = 0;
         while (true) {
             int x = mod % count;
@@ -40,19 +40,20 @@ public class CheckoutSolution {
                 break;
             }
             sum += x;
-            list.add(x);
+            list.add(x + s);
             count -= 3;
         }
 
         int lastValue = count - sum;
 
         if (lastValue > 0) {
-            list.add(lastValue);
+            list.add(lastValue + s);
         }
 
         return list;
     }
 }
+
 
 
 
