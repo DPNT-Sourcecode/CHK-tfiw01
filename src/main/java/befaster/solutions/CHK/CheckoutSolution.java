@@ -30,12 +30,13 @@ public class CheckoutSolution {
         return -1;
     }
 
-    public String decomposeA(String s) {
-        char[] chars = s.toCharArray();
-
-        for (int i = 0; i < chars.length; i++) {
-            for
+    public List<String> decompose(Integer count, Integer mod) {
+        while (mod % count != 0) {
+            
+            mod -= 3;
         }
+
     }
 }
+
 
