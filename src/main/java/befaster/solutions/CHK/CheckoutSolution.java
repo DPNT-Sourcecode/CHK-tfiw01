@@ -265,7 +265,7 @@ public class CheckoutSolution {
         }
 
         if (isOnlyGroupPricingPresentIn(compressedValues)) {
-            total = 45;
+            total = (compressedValues.size() / 3) * 45;
         }
 
         return total;
@@ -401,4 +401,5 @@ public class CheckoutSolution {
         return result;
     }
 }
+
 
