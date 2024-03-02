@@ -107,7 +107,7 @@ public class CheckoutSolution {
             }
         }
 
-        while (count > 0 && count > mod) {
+        while (count > 0) {
             if (count < mod) {
                 mod = minModM;
             }
@@ -156,7 +156,3 @@ public class CheckoutSolution {
         return result;
     }
 }
-
-
-
-
