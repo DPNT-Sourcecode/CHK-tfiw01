@@ -39,5 +39,3 @@ public class CheckoutSolutionTest {
         assertThat(checkoutSolution.checkout("SSS"), equalTo(45));
     }
 }
-
-
