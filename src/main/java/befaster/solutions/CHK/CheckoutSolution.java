@@ -164,27 +164,37 @@ public class CheckoutSolution {
 
         itemsToRemove.forEach(compressedValues::remove);
 
-        int ccount = 0;
+        int countForB = 0;
+        int countForM = 0;
+        int countForQ = 0;
         for (String s: compressedValues) {
             if (s.contains("B")) {
                 itemsToRemove.add(s);
-                ccount++;
+                countForB++;
             }
 
             if (s.contains("M")) {
                 itemsToRemove.add(s);
-                ccount++;
+                countForM++;
             }
 
             if (s.contains("Q")) {
                 itemsToRemove.add(s);
-                ccount++;
+                countForQ++;
             }
         }
 
-        itemsToAdd.addAll(decompose(ccount, 2, 0, "B"));
-        itemsToAdd.addAll(decompose(ccount, 1, 0, "M"));
-        itemsToAdd.addAll(decompose(ccount, 3, 0, "Q"));
+        if (countForB > 0) {
+            itemsToAdd.addAll(decompose(countForB, 2, 0, "B"));
+        }
+
+        if (countForM > 0) {
+            itemsToAdd.addAll(decompose(countForM, 1, 0, "M"));
+        }
+
+        if (countForQ > 0) {
+            itemsToAdd.addAll(decompose(countForQ, 3, 0, "Q"));
+        }
 
         compressedValues.removeAll(itemsToRemove);
         compressedValues.addAll(itemsToAdd);
@@ -331,3 +341,4 @@ public class CheckoutSolution {
         return result;
     }
 }
+
