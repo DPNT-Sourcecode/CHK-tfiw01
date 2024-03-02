@@ -310,6 +310,9 @@ public class CheckoutSolution {
             toRemoveList.forEach(items::remove);
             items.addAll(toAddList);
 
+            toRemoveList.clear();
+            toAddList.clear();
+
         } while (endLoopCount != endLoopItemsListCount);
 
     }
@@ -415,6 +418,3 @@ public class CheckoutSolution {
         return result;
     }
 }
-
-
-
