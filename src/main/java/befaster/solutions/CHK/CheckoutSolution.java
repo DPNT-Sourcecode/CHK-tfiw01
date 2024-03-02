@@ -8,12 +8,12 @@ import java.util.List;
 
 public class CheckoutSolution {
 
-    private static priceList
+    private static final HashMap<String, Integer> priceList;
     private static final List<Character> specialOfferItems =
         List.of('A', 'B', 'E', 'F', 'H', 'K', 'N', 'P', 'Q', 'R', 'U', 'V');
 
     static {
-        HashMap<String, Integer> priceList = new HashMap<>();
+        priceList = new HashMap<>();
         priceList.put("A", 50); priceList.put("B", 30); priceList.put("C", 20); priceList.put("D", 15);
         priceList.put("E", 40); priceList.put("F", 10); priceList.put("G", 20); priceList.put("H", 10);
         priceList.put("I", 35); priceList.put("J", 60); priceList.put("K", 80); priceList.put("L", 90);
@@ -132,6 +132,16 @@ public class CheckoutSolution {
                 itemsToRemove.add(s);
                 itemsToAdd.addAll(decompose(getIntPrefix(s), 1, 0, getStringSuffix(s)));
             }
+
+            if (s.contains("M")) {
+                itemsToRemove.add(s);
+                itemsToAdd.addAll(decompose(getIntPrefix(s), 1, 0, getStringSuffix(s)));
+            }
+
+            if (s.contains("Q")) {
+                itemsToRemove.add(s);
+                itemsToAdd.addAll(decompose(getIntPrefix(s), 1, 0, getStringSuffix(s)));
+            }
         }
 
         compressedValues.removeAll(itemsToRemove);
@@ -144,6 +154,12 @@ public class CheckoutSolution {
             if (s.equals("2E")) {
                 itemsToRemove.add("1B");
             }
+            if (s.equals("3N")) {
+                itemsToRemove.add("1M");
+            }
+            if (s.equals("3R")) {
+                itemsToRemove.add("1Q");
+            }
         }
 
         itemsToRemove.forEach(compressedValues::remove);
@@ -154,9 +170,21 @@ public class CheckoutSolution {
                 itemsToRemove.add(s);
                 ccount++;
             }
+
+            if (s.contains("M")) {
+                itemsToRemove.add(s);
+                ccount++;
+            }
+
+            if (s.contains("Q")) {
+                itemsToRemove.add(s);
+                ccount++;
+            }
         }
 
         itemsToAdd.addAll(decompose(ccount, 2, 0, "B"));
+        itemsToAdd.addAll(decompose(ccount, 1, 0, "M"));
+        itemsToAdd.addAll(decompose(ccount, 3, 0, "Q"));
 
         compressedValues.removeAll(itemsToRemove);
         compressedValues.addAll(itemsToAdd);
@@ -182,6 +210,21 @@ public class CheckoutSolution {
 
         if (compressedValues.contains("2F") && compressedValues.contains("1F")) {
             total = total - 10;
+        }
+
+        if (compressedValues.contains("3U") && !compressedValues.contains("1U")) {
+            int count2F = 0;
+            for(String s : compressedValues) {
+                if (s.equals("3U")) {
+                    count2F++;
+                }
+            }
+
+            total = total - ((count2F - 1) * priceList.getOrDefault("1U", 0));
+        }
+
+        if (compressedValues.contains("3U") && compressedValues.contains("1U")) {
+            total = total - 40;
         }
 
         return total;
@@ -288,4 +331,5 @@ public class CheckoutSolution {
         return result;
     }
 }
+
 
