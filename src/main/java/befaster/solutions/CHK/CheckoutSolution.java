@@ -29,8 +29,17 @@ public class CheckoutSolution {
             }
         }
 
+        List<String> compressedValues = compress(items);
 
+        for (String s : compressedValues) {
+            if (s.contains("A")) {
+                decompose(Integer.valueOf(s.substring(0, 1)), 3, s);
+            }
 
+            if (s.contains("B")) {
+                decompose(Integer.valueOf(s.substring(0, 1)), 2, s);
+            }
+        }
 
         return -1;
     }
@@ -69,17 +78,16 @@ public class CheckoutSolution {
         return count + (String.valueOf(chars[0]));
     }
 
-    public List<String> compress(String s) {
-        char[] chars = s.toCharArray();
+    public List<String> compress(char[] items) {
         String bundle = "";
         List<String> result = new ArrayList<>();
-        for (int i = 0; i < chars.length; i++) {
-            while (i < chars.length - 1 && chars[i] == chars[i+1] && (chars[i] == 'A' || chars[i] == 'B')) {
-                bundle = bundle.concat(String.valueOf(chars[i]));
+        for (int i = 0; i < items.length; i++) {
+            while (i < items.length - 1 && items[i] == items[i+1] && (items[i] == 'A' || items[i] == 'B')) {
+                bundle = bundle.concat(String.valueOf(items[i]));
                 i++;
             }
 
-            bundle = bundle.concat(String.valueOf(chars[i]));
+            bundle = bundle.concat(String.valueOf(items[i]));
             result.add(getStringValue(bundle));
             bundle = "";
         }
@@ -87,3 +95,4 @@ public class CheckoutSolution {
         return result;
     }
 }
+
