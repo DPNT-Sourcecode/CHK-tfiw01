@@ -20,6 +20,7 @@ public class CheckoutSolution {
         priceList.put("1C", 20);
         priceList.put("1D", 15);
         priceList.put("1E", 40);
+        priceList.put("1F", 10);
         priceList.put("3A", 130);
         priceList.put("5A", 200);
         priceList.put("2B", 45);
@@ -218,6 +219,7 @@ public class CheckoutSolution {
         return result;
     }
 }
+
 
 
 
