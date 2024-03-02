@@ -31,6 +31,7 @@ public class CheckoutSolution {
 
 
 
+
         return -1;
     }
 
@@ -68,29 +69,21 @@ public class CheckoutSolution {
         return count + (String.valueOf(chars[0]));
     }
 
-    public String compress(String s) {
+    public List<String> compress(String s) {
         char[] chars = s.toCharArray();
         String bundle = "";
-        String result = "";
+        List<String> result = new ArrayList<>();
         for (int i = 0; i < chars.length; i++) {
-            while (i < chars.length - 1 && chars[i] == chars[i+1]) {
+            while (i < chars.length - 1 && chars[i] == chars[i+1] && (chars[i] == 'A' || chars[i] == 'B')) {
                 bundle = bundle.concat(String.valueOf(chars[i]));
                 i++;
             }
 
             bundle = bundle.concat(String.valueOf(chars[i]));
-            result = result.concat(getStringValue(bundle));
+            result.add(getStringValue(bundle));
             bundle = "";
         }
 
         return result;
     }
 }
-
-
-
-
-
-
-
-
