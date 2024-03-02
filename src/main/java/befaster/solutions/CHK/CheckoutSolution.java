@@ -304,14 +304,13 @@ public class CheckoutSolution {
 
             if (count == 3) {
                 toAddList.add("1Group");
+                toRemoveList.forEach(items::remove);
+                items.addAll(toAddList);
+
+                toRemoveList.clear();
+                toAddList.clear();
                 count = 0;
             }
-
-            toRemoveList.forEach(items::remove);
-            items.addAll(toAddList);
-
-            toRemoveList.clear();
-            toAddList.clear();
 
         } while (endLoopCount != endLoopItemsListCount);
 
@@ -418,3 +417,4 @@ public class CheckoutSolution {
         return result;
     }
 }
+
