@@ -40,13 +40,13 @@ public class CheckoutSolution {
 
         for (String s : compressedValues) {
             if (s.contains("A")) {
-                List<String> nResult = decompose(Integer.valueOf(s.substring(0, 1)), 3, s.substring(1, 2));
+                List<String> nResult = decompose(Integer.valueOf(s.substring(0, 1)), 3, 5, s.substring(1, 2));
                 itemsToAdd.addAll(nResult);
                 itemsToRemove.add(s);
             }
 
             if (s.contains("B")) {
-                List<String> nResult = decompose(Integer.valueOf(s.substring(0, 1)), 2, s.substring(1, 2));
+                List<String> nResult = decompose(Integer.valueOf(s.substring(0, 1)), 2, 0, s.substring(1, 2));
                 itemsToAdd.addAll(nResult);
                 itemsToRemove.add(s);
             }
@@ -71,24 +71,29 @@ public class CheckoutSolution {
         int sum = 0;
         int mod = 0;
         int count = countM;
-        if (countM < minModM && countM < maxModM) {
+        if (maxModM == 0) {
             mod = minModM;
+        } else {
+            if (countM < minModM && countM < maxModM) {
+                mod = minModM;
+            }
+            if (countM > minModM && countM < maxModM) {
+                mod = minModM;
+            }
+            if (countM > minModM && countM > maxModM) {
+                mod = maxModM;
+            }
+            if (countM < minModM && countM > maxModM) {
+                mod = maxModM;
+            }
+            if (countM.equals(minModM)) {
+                mod = minModM;
+            }
+            if (countM.equals(maxModM)) {
+                mod = maxModM;
+            }
         }
-        if (countM > minModM && countM < maxModM) {
-            mod = minModM;
-        }
-        if (countM > minModM && countM > maxModM) {
-            mod = maxModM;
-        }
-        if (countM < minModM && countM > maxModM) {
-            mod = maxModM;
-        }
-        if (countM.equals(minModM)) {
-            mod = minModM;
-        }
-        if (countM.equals(maxModM)) {
-            mod = maxModM;
-        }
+
         while (true) {
             int x = mod % count;
             if (x == 0) {
@@ -135,5 +140,6 @@ public class CheckoutSolution {
         return result;
     }
 }
+
 
 
