@@ -41,5 +41,3 @@ public class CheckoutSolutionTest {
         assertThat(checkoutSolution.checkout("SSSZ"), equalTo(65));
     }
 }
-
-
