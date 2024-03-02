@@ -28,19 +28,12 @@ public class CheckoutSolution {
         priceList.put("1S", 30); priceList.put("1T", 20); priceList.put("1U", 40); priceList.put("1V", 50);
         priceList.put("1W", 20); priceList.put("1X", 90); priceList.put("1Y", 10); priceList.put("1Z", 50);
         priceList.put("3A", 130); priceList.put("5A", 200); priceList.put("2B", 45); priceList.put("2E", 80);
-        priceList.put("2F", 20);
-        priceList.put("2H", 20);
-        priceList.put("3H", 30);
-        priceList.put("4H", 40);
-        priceList.put("5H", 45);
-        priceList.put("6H", 60);
-        priceList.put("7H", 70);
-        priceList.put("8H", 80);
-        priceList.put("9H", 90);
-        priceList.put("10H", 80); priceList.put("2K", 150);
-        priceList.put("3N", 120); priceList.put("2P", 100); priceList.put("3P", 150); priceList.put("4P", 200);
-        priceList.put("5P", 200); priceList.put("3Q", 80); priceList.put("3R", 150); priceList.put("3U", 120);
-        priceList.put("2V", 90); priceList.put("3V", 130);
+        priceList.put("2F", 20); priceList.put("2H", 20); priceList.put("3H", 30); priceList.put("4H", 40);
+        priceList.put("5H", 45); priceList.put("6H", 60); priceList.put("7H", 70); priceList.put("8H", 80);
+        priceList.put("9H", 90); priceList.put("10H", 80); priceList.put("2K", 150); priceList.put("3N", 120);
+        priceList.put("2P", 100); priceList.put("3P", 150); priceList.put("4P", 200); priceList.put("5P", 200);
+        priceList.put("3Q", 80); priceList.put("3R", 150); priceList.put("3U", 120); priceList.put("2V", 90);
+        priceList.put("3V", 130);
     }
 
     public Integer checkout(String skus) {
@@ -371,6 +364,7 @@ public class CheckoutSolution {
         return result;
     }
 }
+
 
 
 
