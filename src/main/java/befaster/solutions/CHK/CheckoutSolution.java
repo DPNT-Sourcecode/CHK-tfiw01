@@ -126,7 +126,7 @@ public class CheckoutSolution {
             total = total - ((count2F - 1) * priceList.getOrDefault("1F", 0));
         }
 
-        if (compressedValues.contains("1F")) {
+        if (compressedValues.contains("2F") && compressedValues.contains("1F")) {
             total = total - 10;
         }
 
@@ -234,3 +234,4 @@ public class CheckoutSolution {
         return result;
     }
 }
+

@@ -17,6 +17,8 @@ public class CheckoutSolutionTest {
 
     @Test
     public void checkout_test() {
+        assertThat(checkoutSolution.checkout("F"), equalTo(10));
+        assertThat(checkoutSolution.checkout("ABCDEF"), equalTo(165));
         assertThat(checkoutSolution.checkout("FF"), equalTo(20));
         assertThat(checkoutSolution.checkout("FFFF"), equalTo(30));
         assertThat(checkoutSolution.checkout("FFFFFF"), equalTo(40));
@@ -24,3 +26,4 @@ public class CheckoutSolutionTest {
         assertThat(checkoutSolution.checkout("AAAAAEEBAAABBFFF"), equalTo(475));
     }
 }
+
