@@ -22,6 +22,7 @@ public class CheckoutSolution {
         priceList.put("3A", 130);
         priceList.put("5A", 200);
         priceList.put("2B", 45);
+        priceList.put("2E", 0);
 
         char[] items = skus.toCharArray();
         Arrays.sort(items);
@@ -58,6 +59,14 @@ public class CheckoutSolution {
 
         compressedValues.removeAll(itemsToRemove);
         compressedValues.addAll(itemsToAdd);
+
+        itemsToAdd.clear();
+
+        for (String s: compressedValues) {
+            if (s.equals("2E")) {
+                itemsToAdd.add("1B");
+            }
+        }
 
         int total = 0;
 
@@ -144,5 +153,6 @@ public class CheckoutSolution {
         return result;
     }
 }
+
 
 
