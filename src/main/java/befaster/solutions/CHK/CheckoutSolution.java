@@ -74,7 +74,7 @@ public class CheckoutSolution {
         itemsToRemove.clear();
 
         for (String s: compressedValues) {
-            if (s.contains("B")) {
+            if (s.contains("B") || s.contains("F")) {
                 itemsToRemove.add(s);
                 itemsToAdd.addAll(decompose(getIntPrefix(s), 1, 0, getStringSuffix(s)));
             }
@@ -90,19 +90,23 @@ public class CheckoutSolution {
             if (s.equals("2E")) {
                 itemsToRemove.add("1B");
             }
+            if (s.equals("2F")) {
+                itemsToRemove.add("1F");
+            }
         }
 
         itemsToRemove.forEach(compressedValues::remove);
 
         int ccount = 0;
         for (String s: compressedValues) {
-            if (s.contains("B")) {
+            if (s.contains("B") || s.contains("F")) {
                 itemsToRemove.add(s);
                 ccount++;
             }
         }
 
         itemsToAdd.addAll(decompose(ccount, 2, 0, "B"));
+        itemsToAdd.addAll(decompose(ccount, 2, 0, "F"));
 
         compressedValues.removeAll(itemsToRemove);
         compressedValues.addAll(itemsToAdd);
@@ -219,6 +223,7 @@ public class CheckoutSolution {
         return result;
     }
 }
+
 
 
 
