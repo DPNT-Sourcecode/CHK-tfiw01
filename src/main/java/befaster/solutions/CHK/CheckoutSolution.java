@@ -33,20 +33,27 @@ public class CheckoutSolution {
 
     public List<Integer> decompose(Integer count, Integer mod) {
         List<Integer> list = new ArrayList<>();
+        int sum = 0;
         while (true) {
             int x = mod % count;
             if (x == 0) {
                 break;
             }
+            sum += x;
             list.add(x);
-            mod -= 3;
+            count -= 3;
         }
 
-        int lastValue = count - 
+        int lastValue = count - sum;
 
-        list.add()
+        if (lastValue > 0) {
+            list.add(lastValue);
+        }
+
+        return list;
     }
 }
+
 
 
 
