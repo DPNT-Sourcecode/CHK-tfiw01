@@ -223,7 +223,7 @@ public class CheckoutSolution {
 
         if (compressedValues.contains("1S") || compressedValues.contains("1T") || compressedValues.contains("1X") ||
             compressedValues.contains("1Y") || compressedValues.contains("1Z")) {
-            
+
         }
 
         if (compressedValues.contains("2F") && compressedValues.contains("1F")) {
@@ -266,6 +266,12 @@ public class CheckoutSolution {
         }
 
         return total;
+    }
+
+    public boolean isPresentIn(List<String> group) {
+        boolean val = false;
+
+        
     }
 
     public Integer getIntPrefix(String s) {
@@ -369,4 +375,5 @@ public class CheckoutSolution {
         return result;
     }
 }
+
 
