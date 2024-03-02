@@ -204,7 +204,9 @@ public class CheckoutSolution {
 
         int total = 0;
 
-        updateListForSpecialOffersItemGrouping(compressedValues);
+        if (isGroupPricingPresentIn(compressedValues)) {
+            updateListForSpecialOffersItemGrouping(compressedValues);
+        }
 
         for (String s : compressedValues) {
             if (priceList.containsKey(s)) {
@@ -417,4 +419,5 @@ public class CheckoutSolution {
         return result;
     }
 }
+
 
