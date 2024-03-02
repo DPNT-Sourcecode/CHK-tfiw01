@@ -31,8 +31,8 @@ public class CheckoutSolution {
 
         List<String> compressedValues = compress(items);
 
-        for (String s : compressedValues) {
-            if (s.contains("A")) {
+        for (int i = 0; i < compressedValues.size(); i++) {
+            if (String.valueOf(compressedValues.get(i))) {
                 List<String> nResult = decompose(Integer.valueOf(s.substring(0, 1)), 3, s);
                 compressedValues.remove(s);
                 compressedValues.addAll(nResult);
@@ -101,5 +101,6 @@ public class CheckoutSolution {
         return result;
     }
 }
+
 
 
