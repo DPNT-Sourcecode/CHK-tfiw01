@@ -13,11 +13,14 @@ public class CheckoutSolution {
         priceList.put("B", 30);
         priceList.put("C", 20);
         priceList.put("D", 15);
+        priceList.put("E", 40);
         priceList.put("1A", 50);
         priceList.put("1B", 30);
         priceList.put("1C", 20);
         priceList.put("1D", 15);
+        priceList.put("1E", 40);
         priceList.put("3A", 130);
+        priceList.put("5A", 200);
         priceList.put("2B", 45);
 
         char[] items = skus.toCharArray();
@@ -32,6 +35,8 @@ public class CheckoutSolution {
         List<String> compressedValues = compress(items);
         List<String> itemsToRemove = new ArrayList<>();
         List<String> itemsToAdd = new ArrayList<>();
+
+
 
         for (String s : compressedValues) {
             if (s.contains("A")) {
@@ -112,3 +117,4 @@ public class CheckoutSolution {
         return result;
     }
 }
+
