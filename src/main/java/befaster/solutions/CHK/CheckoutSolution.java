@@ -65,7 +65,7 @@ public class CheckoutSolution {
         itemsToRemove.clear();
 
         for (String s: compressedValues) {
-            if (s.equals("B")) {
+            if (s.contains("B")) {
                 itemsToRemove.add(s);
                 itemsToAdd.addAll(decompose(getIntPrefix(s), 1, 0, getStringSuffix(s)));
             }
@@ -210,3 +210,4 @@ public class CheckoutSolution {
         return result;
     }
 }
+
