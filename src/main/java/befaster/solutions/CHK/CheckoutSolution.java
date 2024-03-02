@@ -116,14 +116,14 @@ public class CheckoutSolution {
         }
 
         if (compressedValues.contains("2F")) {
-            int countF = 0;
+            int countF = 1;
             for(String s : compressedValues) {
                 if (s.equals("2F")) {
                     countF++;
                 }
             }
 
-            total = total - (countF - 1) * priceList.getOrDefault("F", 0);
+            total = total - ((countF - 1) * priceList.getOrDefault("F", 0));
         }
 
         return total;
@@ -230,6 +230,7 @@ public class CheckoutSolution {
         return result;
     }
 }
+
 
 
 
