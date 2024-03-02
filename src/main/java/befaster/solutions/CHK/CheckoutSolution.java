@@ -229,7 +229,17 @@ public class CheckoutSolution {
         }
 
         if (compressedValues.contains("2F") && compressedValues.contains("1F")) {
-            total = total - 10;
+            int count1F = 0;
+            int count2F = 0;
+            for(String s : compressedValues) {
+                if (s.contains("1F")) {
+                    count1F++;
+                }
+                if (s.contains("2F")) {
+                    count2F++;
+                }
+            }
+            total = total - (Math.min(count1F, count2F) * priceList.getOrDefault("1F", 0));
         }
 
         if (compressedValues.contains("3U") && !compressedValues.contains("1U")) {
@@ -361,5 +371,6 @@ public class CheckoutSolution {
         return result;
     }
 }
+
 
 
