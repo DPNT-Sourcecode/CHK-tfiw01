@@ -204,10 +204,9 @@ public class CheckoutSolution {
 
         int total = 0;
 
-//        if (isGroupPricingPresentIn(compressedValues)) {
-////            System.out.println(compressedValues);
-//            updateListForSpecialOffersItemGrouping(compressedValues);
-//        }
+        if (isGroupPricingPresentIn(compressedValues)) {
+            updateListForSpecialOffersItemGrouping(compressedValues);
+        }
 
         for (String s : compressedValues) {
             if (priceList.containsKey(s)) {
@@ -293,7 +292,11 @@ public class CheckoutSolution {
 
         List<String> lis = List.of("1S", "1T", "1X", "1Y", "1Z");
 
-        do {
+        while (endLoopCount != endLoopItemsListCount) {
+            if (items.isEmpty()) {
+                break;
+            }
+
             for (String eachListItem : items) {
                 if (lis.contains(eachListItem) && !eachListItem.equals("1Group")) {
                     if (count == 3) {
@@ -315,7 +318,7 @@ public class CheckoutSolution {
                 count = 0;
             }
 
-        } while (endLoopCount != endLoopItemsListCount);
+        }
 
     }
 
@@ -420,6 +423,7 @@ public class CheckoutSolution {
         return result;
     }
 }
+
 
 
 
