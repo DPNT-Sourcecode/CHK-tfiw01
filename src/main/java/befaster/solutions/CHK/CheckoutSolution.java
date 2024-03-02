@@ -111,12 +111,10 @@ public class CheckoutSolution {
 
         for (String s : compressedValues) {
             if (priceList.containsKey(s)) {
+                total = total + priceList.getOrDefault(s, 0);
                 if (s.equals("2F")) {
-                    total = total + 20;
-                } else {
-                    total = total + priceList.getOrDefault(s, 0);
+                    total = total - 10;
                 }
-
             }
         }
 
@@ -224,5 +222,6 @@ public class CheckoutSolution {
         return result;
     }
 }
+
 
 
