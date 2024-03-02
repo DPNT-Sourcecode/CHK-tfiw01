@@ -64,11 +64,18 @@ public class CheckoutSolution {
         itemsToAdd.clear();
         itemsToRemove.clear();
 
+        int toRemoveBCount = 0;
+
+
         for (String s: compressedValues) {
             if (s.equals("2E")) {
                 itemsToAdd.add("1BFree");
-                itemsToRemove.add("1B");
+                toRemoveBCount++;
             }
+        }
+
+        if (toRemoveBCount > 0) {
+            itemsToRemove.add(toRemoveBCount + "B");
         }
 
         compressedValues.removeAll(itemsToRemove);
@@ -186,8 +193,3 @@ public class CheckoutSolution {
         return result;
     }
 }
-
-
-
-
-
