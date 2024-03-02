@@ -292,7 +292,7 @@ public class CheckoutSolution {
 
         List<String> lis = List.of("1S", "1T", "1X", "1Y", "1Z");
 
-        while (endLoopCount != endLoopItemsListCount) {
+        while (endLoopCount < endLoopItemsListCount) {
             if (items.isEmpty()) {
                 break;
             }
@@ -304,8 +304,8 @@ public class CheckoutSolution {
                     }
                     toRemoveList.add(eachListItem);
                     count++;
-                    endLoopCount++;
                 }
+                endLoopCount++;
             }
 
             if (count == 3) {
@@ -317,7 +317,6 @@ public class CheckoutSolution {
                 toAddList.clear();
                 count = 0;
             }
-
         }
 
     }
@@ -423,6 +422,7 @@ public class CheckoutSolution {
         return result;
     }
 }
+
 
 
 
