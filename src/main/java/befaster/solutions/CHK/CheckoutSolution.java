@@ -205,6 +205,7 @@ public class CheckoutSolution {
         int total = 0;
 
         if (isGroupPricingPresentIn(compressedValues)) {
+//            System.out.println(compressedValues);
             updateListForSpecialOffersItemGrouping(compressedValues);
         }
 
@@ -300,8 +301,8 @@ public class CheckoutSolution {
                     }
                     toRemoveList.add(eachListItem);
                     count++;
-                    endLoopCount++;
                 }
+                endLoopCount++;
             }
 
             if (count == 3) {
@@ -419,5 +420,6 @@ public class CheckoutSolution {
         return result;
     }
 }
+
 
 
