@@ -58,8 +58,35 @@ public class CheckoutSolution {
         return list;
     }
 
-    
+    public String getStringValue(String s) {
+        int count = 0;
+        char[] chars = s.toCharArray();
+        for(int i = 0; i < chars.length; i++) {
+            count++;
+        }
+
+        return count + (String.valueOf(chars[0]));
+    }
+
+    public String compress(String s) {
+        char[] chars = s.toCharArray();
+        String bundle = "";
+        String result = "";
+        for (int i = 0; i < chars.length; i++) {
+            while (i < chars.length - 1 && chars[i] == chars[i+1]) {
+                bundle = bundle.concat(String.valueOf(chars[i]));
+                i++;
+            }
+
+            bundle = bundle.concat(String.valueOf(chars[i]));
+            result = result.concat(getStringValue(bundle));
+            bundle = "";
+        }
+
+        return result;
+    }
 }
+
 
 
 
