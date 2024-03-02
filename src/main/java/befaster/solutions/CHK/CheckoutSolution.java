@@ -221,6 +221,11 @@ public class CheckoutSolution {
             total = total - ((count2F - 1) * priceList.getOrDefault("1F", 0));
         }
 
+        if (compressedValues.contains("1S") || compressedValues.contains("1T") || compressedValues.contains("1X") ||
+            compressedValues.contains("1Y") || compressedValues.contains("1Z")) {
+            
+        }
+
         if (compressedValues.contains("2F") && compressedValues.contains("1F")) {
             int count1F = 0;
             int count2F = 0;
@@ -364,3 +369,4 @@ public class CheckoutSolution {
         return result;
     }
 }
+
