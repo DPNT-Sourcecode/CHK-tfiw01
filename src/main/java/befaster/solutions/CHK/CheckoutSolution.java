@@ -22,7 +22,7 @@ public class CheckoutSolution {
         priceList.put("3A", 130);
         priceList.put("5A", 200);
         priceList.put("2B", 45);
-        priceList.put("2E", 0);
+        priceList.put("2E", 80);
 
         char[] items = skus.toCharArray();
         Arrays.sort(items);
@@ -108,6 +108,9 @@ public class CheckoutSolution {
         }
 
         while (count > 0 && count > mod) {
+            if (count < mod) {
+                mod = minModM;
+            }
             int x = mod % count;
             if (x == 0) {
                 break;
@@ -153,6 +156,7 @@ public class CheckoutSolution {
         return result;
     }
 }
+
 
 
 
