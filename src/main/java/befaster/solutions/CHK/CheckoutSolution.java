@@ -261,11 +261,11 @@ public class CheckoutSolution {
         }
 
         if (isGroupPricingPresentIn(compressedValues)) {
-            if (isOnlyGroupPricingPresentIn(compressedValues)) {
-                total = 45;
-            } else {
-                total = total - 45;
-            }
+            total = total - 45;
+        }
+
+        if (isOnlyGroupPricingPresentIn(compressedValues)) {
+            total = 45;
         }
 
         return total;
@@ -401,3 +401,4 @@ public class CheckoutSolution {
         return result;
     }
 }
+
