@@ -304,8 +304,8 @@ public class CheckoutSolution {
                     }
                     toRemoveList.add(eachListItem);
                     count++;
+                    endLoopCount++;
                 }
-                endLoopCount++;
             }
 
             if (count == 3) {
@@ -423,6 +423,7 @@ public class CheckoutSolution {
         return result;
     }
 }
+
 
 
 
