@@ -26,7 +26,6 @@ public class CheckoutSolution {
         priceList.put("2B", 45);
         priceList.put("2E", 80);
         priceList.put("2F", 20);
-        priceList.put("1BFree", 0);
 
         char[] items = skus.toCharArray();
         Arrays.sort(items);
@@ -234,4 +233,3 @@ public class CheckoutSolution {
         return result;
     }
 }
-
