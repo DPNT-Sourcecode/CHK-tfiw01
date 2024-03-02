@@ -233,14 +233,14 @@ public class CheckoutSolution {
         }
 
         if (compressedValues.contains("3U") && !compressedValues.contains("1U")) {
-            int count2F = 0;
+            int count3U = 0;
             for(String s : compressedValues) {
                 if (s.equals("3U")) {
-                    count2F++;
+                    count3U++;
                 }
             }
 
-            total = total - ((count2F - 1) * priceList.getOrDefault("1U", 0));
+            total = total - ((count3U - 1) * priceList.getOrDefault("1U", 0));
         }
 
         if (compressedValues.contains("3U") && compressedValues.contains("1U")) {
@@ -351,5 +351,6 @@ public class CheckoutSolution {
         return result;
     }
 }
+
 
 
