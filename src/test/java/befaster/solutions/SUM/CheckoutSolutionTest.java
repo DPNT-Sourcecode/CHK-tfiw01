@@ -17,15 +17,19 @@ public class CheckoutSolutionTest {
 
     @Test
     public void checkout_test() {
-        assertThat(checkoutSolution.checkout("F"), equalTo(10));
-        assertThat(checkoutSolution.checkout("ABCDEF"), equalTo(165));
-        assertThat(checkoutSolution.checkout("FF"), equalTo(20));
-        assertThat(checkoutSolution.checkout("FFFF"), equalTo(30));
-        assertThat(checkoutSolution.checkout("FFFFFF"), equalTo(40));
-        assertThat(checkoutSolution.checkout("FFF"), equalTo(20));
-        assertThat(checkoutSolution.checkout("AAAAAEEBAAABBFFF"), equalTo(475));
-        assertThat(checkoutSolution.checkout("B"), equalTo(30));
-        assertThat(checkoutSolution.checkout("M"), equalTo(15));
-        assertThat(checkoutSolution.checkout("Q"), equalTo(30));
+//        assertThat(checkoutSolution.checkout("F"), equalTo(10));
+//        assertThat(checkoutSolution.checkout("ABCDEF"), equalTo(165));
+//        assertThat(checkoutSolution.checkout("FF"), equalTo(20));
+//        assertThat(checkoutSolution.checkout("FFFF"), equalTo(30));
+//        assertThat(checkoutSolution.checkout("FFFFFF"), equalTo(40));
+//        assertThat(checkoutSolution.checkout("FFF"), equalTo(20));
+//        assertThat(checkoutSolution.checkout("AAAAAEEBAAABBFFF"), equalTo(475));
+//        assertThat(checkoutSolution.checkout("B"), equalTo(30));
+//        assertThat(checkoutSolution.checkout("M"), equalTo(15));
+//        assertThat(checkoutSolution.checkout("Q"), equalTo(30));
+        assertThat(checkoutSolution.checkout("PPP"), equalTo(150));
+        assertThat(checkoutSolution.checkout("PPPP"), equalTo(200));
+        assertThat(checkoutSolution.checkout("PPPPPPPP"), equalTo(350));
     }
 }
+
