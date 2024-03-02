@@ -30,24 +30,35 @@ public class CheckoutSolution {
         }
 
         List<String> compressedValues = compress(items);
+        List<String> itemsToRemove = new ArrayList<>();
+        List<String> itemsToAdd = new ArrayList<>();
 
         for (String s : compressedValues) {
             if (s.contains("A")) {
                 List<String> nResult = decompose(Integer.valueOf(s.substring(0, 1)), 3, s);
-                compressedValues.remove(s);
-                compressedValues.addAll(nResult);
+                itemsToAdd.addAll(nResult);
+                itemsToRemove.add(s);
             }
-//
-//            if (s.contains("B")) {
-//                List<String> nResult = decompose(Integer.valueOf(s.substring(0, 1)), 2, s);
-//                compressedValues.remove(s);
-//                compressedValues.addAll(nResult);
-//            }
+
+            if (s.contains("B")) {
+                List<String> nResult = decompose(Integer.valueOf(s.substring(0, 1)), 2, s);
+                itemsToAdd.addAll(nResult);
+                itemsToRemove.add(s);
+            }
         }
 
-        System.out.println(compressedValues);
+        compressedValues.removeAll(itemsToRemove);
+        compressedValues.addAll(itemsToAdd);
 
-        return -1;
+        int total = 0;
+
+        for (String s : compressedValues) {
+            if (priceList.containsKey(s)) {
+                total = total + priceList.getOrDefault(s, 0);
+            }
+        }
+
+        return total;
     }
 
     public List<String> decompose(Integer countM, Integer modM, String s) {
@@ -101,6 +112,7 @@ public class CheckoutSolution {
         return result;
     }
 }
+
 
 
 
