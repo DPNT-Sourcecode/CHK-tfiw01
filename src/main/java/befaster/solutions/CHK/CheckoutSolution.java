@@ -264,7 +264,7 @@ public class CheckoutSolution {
             total = total - 45;
         }
 
-        if (isOnlyGroupPricingPresentIn(compressedValues)) {
+        if (isOnlyGroupPricingPresentIn(compressedValues) && compressedValues.size() > 1) {
             total = (Math.max(compressedValues.size(), 3) / 3) * 45;
         }
 
@@ -401,6 +401,7 @@ public class CheckoutSolution {
         return result;
     }
 }
+
 
 
 
