@@ -288,17 +288,16 @@ public class CheckoutSolution {
     }
 
     public boolean isOnlyGroupPricingPresentIn(List<String> items) {
-        boolean val = true;
+        int count = 0;
 
         List<String> lis = List.of("1S", "1T", "1X", "1Y", "1Z");
-        for (String eachListItem : lis) {
-            if (!items.contains(eachListItem)) {
-                val = false;
-                break;
+        for (String eachListItem : items) {
+            if (lis.contains(eachListItem)) {
+                count++;
             }
         }
 
-        return val;
+        return count == items.size();
     }
 
     public Integer getIntPrefix(String s) {
@@ -402,7 +401,3 @@ public class CheckoutSolution {
         return result;
     }
 }
-
-
-
-
