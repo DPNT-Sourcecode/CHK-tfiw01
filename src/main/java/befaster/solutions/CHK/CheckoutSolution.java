@@ -46,13 +46,13 @@ public class CheckoutSolution {
             }
 
             if (s.contains("B")) {
-                List<String> nResult = decompose(getIntPrefix(s), 2, 0, s.substring(1, 2));
+                List<String> nResult = decompose(getIntPrefix(s), 2, 0, getStringSuffix(s));
                 itemsToAdd.addAll(nResult);
                 itemsToRemove.add(s);
             }
 
             if (s.contains("E")) {
-                List<String> nResult = decompose(getIntPrefix(s), 2, 0, s.substring(1, 2));
+                List<String> nResult = decompose(getIntPrefix(s), 2, 0, getStringSuffix(s));
                 itemsToAdd.addAll(nResult);
                 itemsToRemove.add(s);
             }
@@ -90,6 +90,18 @@ public class CheckoutSolution {
         }
 
         return Integer.valueOf(result);
+    }
+
+    public String getStringSuffix(String s) {
+        String result = "";
+        char[] chars = s.toCharArray();
+        for (char c : chars) {
+            if (Character.isLetter(c)) {
+                result = result.concat(String.valueOf(c));
+            }
+        }
+
+        return result;
     }
 
     public List<String> decompose(Integer countM, Integer minModM, Integer maxModM, String s) {
@@ -169,5 +181,6 @@ public class CheckoutSolution {
         return result;
     }
 }
+
 
 
