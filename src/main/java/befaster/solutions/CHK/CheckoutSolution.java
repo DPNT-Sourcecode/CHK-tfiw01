@@ -66,11 +66,29 @@ public class CheckoutSolution {
         return total;
     }
 
-    public List<String> decompose(Integer countM, Integer modM, String s) {
+    public List<String> decompose(Integer countM, Integer minModM, Integer maxModM, String s) {
         List<String> list = new ArrayList<>();
         int sum = 0;
-        int mod = modM;
+        int mod = 0;
         int count = countM;
+        if (countM < minModM && countM < maxModM) {
+            mod = minModM;
+        }
+        if (countM > minModM && countM < maxModM) {
+            mod = minModM;
+        }
+        if (countM > minModM && countM > maxModM) {
+            mod = maxModM;
+        }
+        if (countM < minModM && countM > maxModM) {
+            mod = maxModM;
+        }
+        if (countM.equals(minModM)) {
+            mod = minModM;
+        }
+        if (countM.equals(maxModM)) {
+            mod = maxModM;
+        }
         while (true) {
             int x = mod % count;
             if (x == 0) {
@@ -117,4 +135,5 @@ public class CheckoutSolution {
         return result;
     }
 }
+
 
