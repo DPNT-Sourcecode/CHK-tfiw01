@@ -204,10 +204,10 @@ public class CheckoutSolution {
 
         int total = 0;
 
-        if (isGroupPricingPresentIn(compressedValues)) {
-//            System.out.println(compressedValues);
-            updateListForSpecialOffersItemGrouping(compressedValues);
-        }
+//        if (isGroupPricingPresentIn(compressedValues)) {
+////            System.out.println(compressedValues);
+//            updateListForSpecialOffersItemGrouping(compressedValues);
+//        }
 
         for (String s : compressedValues) {
             if (priceList.containsKey(s)) {
@@ -420,6 +420,7 @@ public class CheckoutSolution {
         return result;
     }
 }
+
 
 
 
