@@ -3,6 +3,8 @@ package befaster.solutions.CHK;
 import befaster.runner.SolutionNotImplementedException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 
@@ -203,6 +205,8 @@ public class CheckoutSolution {
         compressedValues.addAll(itemsToAdd);
 
         int total = 0;
+
+        compressedValues.sort(new CustomComparatorClass(priceList));
 
         if (isGroupPricingPresentIn(compressedValues)) {
             updateListForSpecialOffersItemGrouping(compressedValues);
@@ -422,3 +426,21 @@ public class CheckoutSolution {
         return result;
     }
 }
+
+class CustomComparatorClass implements Comparator<String> {
+
+    private final HashMap<String, Integer> dataMap;
+    public CustomComparatorClass(HashMap<String, Integer> dataMap) {
+        this.dataMap = dataMap;
+    }
+
+    @Override
+    public int compare(String s, String t1) {
+        if (dataMap.getOrDefault(s, 0) > dataMap.getOrDefault(t1, 0)) {
+            return -1;
+        } else {
+            return 0;
+        }
+    }
+}
+
