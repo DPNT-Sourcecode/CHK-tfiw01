@@ -13,6 +13,10 @@ public class CheckoutSolution {
         priceList.put("B", 30);
         priceList.put("C", 20);
         priceList.put("D", 15);
+        priceList.put("1A", 50);
+        priceList.put("1B", 30);
+        priceList.put("1C", 20);
+        priceList.put("1D", 15);
         priceList.put("3A", 130);
         priceList.put("2B", 45);
 
@@ -31,9 +35,11 @@ public class CheckoutSolution {
         return -1;
     }
 
-    public List<String> decompose(Integer count, Integer mod, String s) {
+    public List<String> decompose(Integer countM, Integer modM, String s) {
         List<String> list = new ArrayList<>();
         int sum = 0;
+        int mod = modM;
+        int count = countM;
         while (true) {
             int x = mod % count;
             if (x == 0) {
@@ -44,7 +50,7 @@ public class CheckoutSolution {
             count -= 3;
         }
 
-        int lastValue = count - sum;
+        int lastValue = countM - sum;
 
         if (lastValue > 0) {
             list.add(lastValue + s);
@@ -53,6 +59,7 @@ public class CheckoutSolution {
         return list;
     }
 }
+
 
 
 
