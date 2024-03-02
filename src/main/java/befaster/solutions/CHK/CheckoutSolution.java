@@ -31,7 +31,6 @@ public class CheckoutSolution {
 
 
 
-
         return -1;
     }
 
@@ -47,7 +46,7 @@ public class CheckoutSolution {
             }
             sum += x;
             list.add(x + s);
-            count -= 3;
+            count -= mod;
         }
 
         int lastValue = countM - sum;
@@ -58,7 +57,10 @@ public class CheckoutSolution {
 
         return list;
     }
+
+    
 }
+
 
 
 
