@@ -284,15 +284,15 @@ public class CheckoutSolution {
     public void updateListForSpecialOffersItemGrouping(List<String> items) {
         int count = 0;
         int endLoopCount = 0;
+        int endLoopItemsListCount = items.size();
         List<String> toRemoveList = new ArrayList<>();
         List<String> toAddList = new ArrayList<>();
-        List<String> localItems = new ArrayList<>(items);
 
         List<String> lis = List.of("1S", "1T", "1X", "1Y", "1Z");
 
         do {
-            for (String eachListItem : localItems) {
-                if (lis.contains(eachListItem)) {
+            for (String eachListItem : items) {
+                if (lis.contains(eachListItem) && !eachListItem.equals("1Group")) {
                     if (count == 3) {
                         break;
                     }
@@ -310,7 +310,7 @@ public class CheckoutSolution {
             toRemoveList.forEach(items::remove);
             items.addAll(toAddList);
 
-        } while (endLoopCount != localItems.size());
+        } while (endLoopCount != endLoopItemsListCount);
 
     }
 
@@ -415,5 +415,6 @@ public class CheckoutSolution {
         return result;
     }
 }
+
 
 
