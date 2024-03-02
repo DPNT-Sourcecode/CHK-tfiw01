@@ -283,26 +283,35 @@ public class CheckoutSolution {
 
     public void updateListForSpecialOffersItemGrouping(List<String> items) {
         int count = 0;
+        int endLoopCount = 0;
         List<String> toRemoveList = new ArrayList<>();
         List<String> toAddList = new ArrayList<>();
+        List<String> localItems = new ArrayList<>(items);
 
         List<String> lis = List.of("1S", "1T", "1X", "1Y", "1Z");
-        for (String eachListItem : items) {
-            if (lis.contains(eachListItem)) {
-                if (count == 3) {
-                    break;
+
+        do {
+            for (String eachListItem : localItems) {
+                if (lis.contains(eachListItem)) {
+                    if (count == 3) {
+                        break;
+                    }
+                    toRemoveList.add(eachListItem);
+                    count++;
+                    endLoopCount++;
                 }
-                toRemoveList.add(eachListItem);
-                count++;
             }
-        }
 
-        if (count == 3) {
-            toAddList.add("1Group");
-        }
+            if (count == 3) {
+                toAddList.add("1Group");
+                count = 0;
+            }
 
-        items.removeAll(toRemoveList);
-        items.addAll(toAddList);
+            toRemoveList.forEach(items::remove);
+            items.addAll(toAddList);
+
+        } while (endLoopCount != localItems.size());
+
     }
 
     public Integer getIntPrefix(String s) {
@@ -406,4 +415,5 @@ public class CheckoutSolution {
         return result;
     }
 }
+
 
