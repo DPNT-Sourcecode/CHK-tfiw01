@@ -58,6 +58,12 @@ public class CheckoutSolution {
                 itemsToAdd.addAll(nResult);
                 itemsToRemove.add(s);
             }
+
+            if (s.contains("F")) {
+                List<String> nResult = decompose(getIntPrefix(s), 2, 0, getStringSuffix(s));
+                itemsToAdd.addAll(nResult);
+                itemsToRemove.add(s);
+            }
         }
 
         compressedValues.removeAll(itemsToRemove);
@@ -199,7 +205,7 @@ public class CheckoutSolution {
         String bundle = "";
         List<String> result = new ArrayList<>();
         for (int i = 0; i < items.length; i++) {
-            while (i < items.length - 1 && items[i] == items[i+1] && (items[i] == 'A' || items[i] == 'B' || items[i] == 'E')) {
+            while (i < items.length - 1 && items[i] == items[i+1] && (items[i] == 'A' || items[i] == 'B' || items[i] == 'E' || items[i] == 'F')) {
                 bundle = bundle.concat(String.valueOf(items[i]));
                 i++;
             }
@@ -212,5 +218,6 @@ public class CheckoutSolution {
         return result;
     }
 }
+
 
 
