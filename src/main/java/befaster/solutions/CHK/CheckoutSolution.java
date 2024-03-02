@@ -92,7 +92,7 @@ public class CheckoutSolution {
             }
         }
 
-        while (true) {
+        while (true && count > 0) {
             int x = mod % count;
             if (x == 0) {
                 break;
@@ -138,7 +138,3 @@ public class CheckoutSolution {
         return result;
     }
 }
-
-
-
-
