@@ -261,7 +261,11 @@ public class CheckoutSolution {
         }
 
         if (isGroupPricingPresentIn(compressedValues)) {
-            total = total - 45;
+            if (isOnlyGroupPricingPresentIn(compressedValues)) {
+                total = 45;
+            } else {
+                total = total - 45;
+            }
         }
 
         return total;
@@ -281,6 +285,20 @@ public class CheckoutSolution {
         }
 
         return count == 3;
+    }
+
+    public boolean isOnlyGroupPricingPresentIn(List<String> items) {
+        boolean val = true;
+
+        List<String> lis = List.of("1S", "1T", "1X", "1Y", "1Z");
+        for (String eachListItem : lis) {
+            if (!items.contains(eachListItem)) {
+                val = false;
+                break;
+            }
+        }
+
+        return val;
     }
 
     public Integer getIntPrefix(String s) {
@@ -384,6 +402,7 @@ public class CheckoutSolution {
         return result;
     }
 }
+
 
 
 
