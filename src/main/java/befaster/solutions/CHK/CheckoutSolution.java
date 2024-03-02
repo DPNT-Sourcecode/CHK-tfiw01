@@ -116,7 +116,7 @@ public class CheckoutSolution {
         }
 
         if (compressedValues.contains("2F")) {
-            int countF = 1;
+            int countF = 0;
             for(String s : compressedValues) {
                 if (s.equals("2F")) {
                     countF++;
@@ -230,6 +230,7 @@ public class CheckoutSolution {
         return result;
     }
 }
+
 
 
 
