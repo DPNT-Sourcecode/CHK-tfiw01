@@ -33,7 +33,7 @@ public class CheckoutSolution {
         priceList.put("9H", 90); priceList.put("10H", 80); priceList.put("2K", 120); priceList.put("3N", 120);
         priceList.put("2P", 100); priceList.put("3P", 150); priceList.put("4P", 200); priceList.put("5P", 200);
         priceList.put("3Q", 80); priceList.put("3R", 150); priceList.put("3U", 120); priceList.put("2V", 90);
-        priceList.put("3V", 130);
+        priceList.put("3V", 130); priceList.put("1Group", 45);
     }
 
     public Integer checkout(String skus) {
@@ -204,6 +204,8 @@ public class CheckoutSolution {
 
         int total = 0;
 
+        updateListForSpecialOffersItemGrouping(compressedValues);
+
         for (String s : compressedValues) {
             if (priceList.containsKey(s)) {
                 total = total + priceList.getOrDefault(s, 0);
@@ -260,14 +262,6 @@ public class CheckoutSolution {
             total = total - (Math.min(count1U, count3U) * priceList.getOrDefault("1U", 0));
         }
 
-        if (isGroupPricingPresentIn(compressedValues)) {
-            total = total - 45;
-        }
-
-        if (isOnlyGroupPricingPresentIn(compressedValues) && compressedValues.size() > 1) {
-            total = (Math.max(compressedValues.size(), 3) / 3) * 45;
-        }
-
         return total;
     }
 
@@ -287,17 +281,28 @@ public class CheckoutSolution {
         return count == 3;
     }
 
-    public boolean isOnlyGroupPricingPresentIn(List<String> items) {
+    public void updateListForSpecialOffersItemGrouping(List<String> items) {
         int count = 0;
+        List<String> toRemoveList = new ArrayList<>();
+        List<String> toAddList = new ArrayList<>();
 
         List<String> lis = List.of("1S", "1T", "1X", "1Y", "1Z");
         for (String eachListItem : items) {
             if (lis.contains(eachListItem)) {
+                if (count == 3) {
+                    break;
+                }
+                toRemoveList.add(eachListItem);
                 count++;
             }
         }
 
-        return count == items.size();
+        if (count == 3) {
+            toAddList.add("1Group");
+        }
+
+        items.removeAll(toRemoveList);
+        items.addAll(toAddList);
     }
 
     public Integer getIntPrefix(String s) {
@@ -401,3 +406,4 @@ public class CheckoutSolution {
         return result;
     }
 }
+
