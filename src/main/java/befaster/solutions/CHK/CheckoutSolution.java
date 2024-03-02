@@ -66,7 +66,6 @@ public class CheckoutSolution {
 
         int toRemoveBCount = 0;
 
-
         for (String s: compressedValues) {
             if (s.equals("2E")) {
                 itemsToAdd.add("1BFree");
@@ -74,8 +73,19 @@ public class CheckoutSolution {
             }
         }
 
-        if (toRemoveBCount > 0) {
-            itemsToRemove.add(toRemoveBCount + "B");
+        compressedValues.removeAll(itemsToRemove);
+        compressedValues.addAll(itemsToAdd);
+
+        itemsToAdd.clear();
+        itemsToRemove.clear();
+
+        if (compressedValues.contains("1BFree")) {
+            for (String s : compressedValues) {
+                if (s.contains("B") && !s.equals("1BFree")) {
+                    itemsToRemove.add(s);
+                    itemsToAdd.add((getIntPrefix(s) - toRemoveBCount) + "B");
+                }
+            }
         }
 
         compressedValues.removeAll(itemsToRemove);
@@ -193,3 +203,4 @@ public class CheckoutSolution {
         return result;
     }
 }
+
