@@ -36,5 +36,3 @@ public class CheckoutSolutionTest {
         assertThat(checkoutSolution.checkout("NNNM"), equalTo(120));
     }
 }
-
-
