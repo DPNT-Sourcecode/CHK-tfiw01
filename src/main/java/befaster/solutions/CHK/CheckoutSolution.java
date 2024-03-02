@@ -62,12 +62,17 @@ public class CheckoutSolution {
         compressedValues.addAll(itemsToAdd);
 
         itemsToAdd.clear();
+        itemsToRemove.clear();
 
         for (String s: compressedValues) {
             if (s.equals("2E")) {
                 itemsToAdd.add("1BFree");
+                itemsToRemove.add("1B");
             }
         }
+
+        compressedValues.removeAll(itemsToRemove);
+        compressedValues.addAll(itemsToAdd);
 
         int total = 0;
 
@@ -181,6 +186,7 @@ public class CheckoutSolution {
         return result;
     }
 }
+
 
 
 
