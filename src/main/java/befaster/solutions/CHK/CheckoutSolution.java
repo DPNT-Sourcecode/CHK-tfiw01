@@ -48,6 +48,12 @@ public class CheckoutSolution {
                 itemsToAdd.addAll(nResult);
                 itemsToRemove.add(s);
             }
+
+            if (s.contains("E")) {
+                List<String> nResult = decompose(Integer.valueOf(s.substring(0, 1)), 2, 0, s.substring(1, 2));
+                itemsToAdd.addAll(nResult);
+                itemsToRemove.add(s);
+            }
         }
 
         compressedValues.removeAll(itemsToRemove);
@@ -138,4 +144,5 @@ public class CheckoutSolution {
         return result;
     }
 }
+
 
