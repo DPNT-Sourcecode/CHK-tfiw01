@@ -7,7 +7,7 @@ set -o pipefail
 
 SCRIPT_CURRENT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
-CHALLENGE_ID=$1
+CHALLENGE_ID=CHK
 JACOCO_TEST_REPORT_XML_FILE="${SCRIPT_CURRENT_DIR}/build/jacoco/test/jacocoTestReport.xml"
 mkdir -p ${SCRIPT_CURRENT_DIR}/target
 JAVA_CODE_COVERAGE_INFO="${SCRIPT_CURRENT_DIR}/coverage.tdl"
@@ -36,3 +36,4 @@ else
     echo "No coverage report was found"
     exit 255
 fi
+
