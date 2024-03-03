@@ -387,7 +387,7 @@ public class CheckoutSolution {
         List<String> result = new ArrayList<>();
         for (int i = 0; i < items.length; i++) {
             while (i < items.length - 1 && items[i] == items[i+1]
-                && (PriceListDataWareHouse.specialOfferItems.contains(items[i]))) {
+                && (SpecialOffers.specialOfferItems.contains(items[i]))) {
                 bundle = bundle.concat(String.valueOf(items[i]));
                 i++;
             }
@@ -401,10 +401,13 @@ public class CheckoutSolution {
     }
 }
 
-class PriceListDataWareHouse {
-    public static final HashMap<String, Integer> priceList;
+class SpecialOffers {
     public static final List<Character> specialOfferItems =
         List.of('A', 'B', 'E', 'F', 'H', 'K', 'N', 'P', 'Q', 'R', 'U', 'V');
+}
+
+class PriceListDataWareHouse {
+    public static final HashMap<String, Integer> priceList;
 
     static {
         priceList = new HashMap<>();
@@ -449,3 +452,4 @@ class CustomComparatorClass implements Comparator<String> {
         }
     }
 }
+
