@@ -60,6 +60,10 @@ public class SpecialDeal {
         this.cummulativeValue++;
     }
 
+    public void resetCummulativeValue() {
+        this.cummulativeValue = 0;
+    }
+
     public static final class Builder {
         private Character freeItem;
         private String freeItemAlias;
@@ -124,5 +128,3 @@ public class SpecialDeal {
         }
     }
 }
-
-
