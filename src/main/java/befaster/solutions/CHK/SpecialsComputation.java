@@ -3,9 +3,9 @@ package befaster.solutions.CHK;
 import java.util.ArrayList;
 import java.util.List;
 
-public class SpecialOffers {
+public class SpecialsComputation {
 
-    public SpecialOffers() {}
+    public SpecialsComputation() {}
 
     public List<String> applySpecialOffer(Integer countM, Integer lowerBoundOffer, Integer upperBoundOffer, String s) {
         List<String> list = new ArrayList<>();
@@ -227,3 +227,4 @@ public class SpecialOffers {
         return total;
     }
 }
+

@@ -18,15 +18,15 @@ public class CheckoutSolution {
 
         List<String> orderList = placeOrder(items);
 
-        SpecialOffers specialOffers = new SpecialOffers();
-        specialOffers.applySpecialOffer(orderList);
+        SpecialsComputation specialsComputation = new SpecialsComputation();
+        specialsComputation.applySpecialOffer(orderList);
 
         int total = 0;
 
         orderList.sort(new CustomComparatorClass(DataWarehouse.priceList));
 
-        if (specialOffers.isGroupPricingPresentIn(orderList)) {
-            specialOffers.updateOrderListForSpecialOffersItemGrouping(orderList);
+        if (specialsComputation.isGroupPricingPresentIn(orderList)) {
+            specialsComputation.updateOrderListForSpecialOffersItemGrouping(orderList);
         }
 
         for (String s : orderList) {
@@ -35,7 +35,7 @@ public class CheckoutSolution {
             }
         }
 
-        total = specialOffers.applyIdenticalItemDiscounts(total, orderList);
+        total = specialsComputation.applyIdenticalItemDiscounts(total, orderList);
 
         return total;
     }
@@ -58,4 +58,5 @@ public class CheckoutSolution {
         return result;
     }
 }
+
 
