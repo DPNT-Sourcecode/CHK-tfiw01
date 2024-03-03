@@ -1,9 +1,7 @@
 package befaster.solutions.CHK;
 
-import befaster.runner.SolutionNotImplementedException;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
@@ -20,114 +18,114 @@ public class CheckoutSolution {
             }
         }
 
-        List<String> compressedValues = compress(items);
+        List<String> orderList = placeOrder(items);
         List<String> itemsToRemove = new ArrayList<>();
         List<String> itemsToAdd = new ArrayList<>();
 
-        for (String s : compressedValues) {
+        for (String s : orderList) {
             if (s.contains("A")) {
-                List<String> nResult = decompose(getIntPrefix(s), 3, 5, getStringSuffix(s));
+                List<String> nResult = applyGeneralSpecialOffer(getItemQuantity(s), 3, 5, getItemName(s));
                 itemsToAdd.addAll(nResult);
                 itemsToRemove.add(s);
             }
 
             if (s.contains("B")) {
-                List<String> nResult = decompose(getIntPrefix(s), 2, 0, getStringSuffix(s));
+                List<String> nResult = applyGeneralSpecialOffer(getItemQuantity(s), 2, 0, getItemName(s));
                 itemsToAdd.addAll(nResult);
                 itemsToRemove.add(s);
             }
 
             if (s.contains("E")) {
-                List<String> nResult = decompose(getIntPrefix(s), 2, 0, getStringSuffix(s));
+                List<String> nResult = applyGeneralSpecialOffer(getItemQuantity(s), 2, 0, getItemName(s));
                 itemsToAdd.addAll(nResult);
                 itemsToRemove.add(s);
             }
 
             if (s.contains("F")) {
-                List<String> nResult = decompose(getIntPrefix(s), 2, 0, getStringSuffix(s));
+                List<String> nResult = applyGeneralSpecialOffer(getItemQuantity(s), 2, 0, getItemName(s));
                 itemsToAdd.addAll(nResult);
                 itemsToRemove.add(s);
             }
 
             if (s.contains("H")) {
-                List<String> nResult = decompose(getIntPrefix(s), 5, 10, getStringSuffix(s));
+                List<String> nResult = applyGeneralSpecialOffer(getItemQuantity(s), 5, 10, getItemName(s));
                 itemsToAdd.addAll(nResult);
                 itemsToRemove.add(s);
             }
 
             if (s.contains("K")) {
-                List<String> nResult = decompose(getIntPrefix(s), 2, 0, getStringSuffix(s));
+                List<String> nResult = applyGeneralSpecialOffer(getItemQuantity(s), 2, 0, getItemName(s));
                 itemsToAdd.addAll(nResult);
                 itemsToRemove.add(s);
             }
 
             if (s.contains("N")) {
-                List<String> nResult = decompose(getIntPrefix(s), 3, 0, getStringSuffix(s));
+                List<String> nResult = applyGeneralSpecialOffer(getItemQuantity(s), 3, 0, getItemName(s));
                 itemsToAdd.addAll(nResult);
                 itemsToRemove.add(s);
             }
 
             if (s.contains("P")) {
-                List<String> nResult = decompose(getIntPrefix(s), 5, 0, getStringSuffix(s));
+                List<String> nResult = applyGeneralSpecialOffer(getItemQuantity(s), 5, 0, getItemName(s));
                 itemsToAdd.addAll(nResult);
                 itemsToRemove.add(s);
             }
 
             if (s.contains("Q")) {
-                List<String> nResult = decompose(getIntPrefix(s), 3, 0, getStringSuffix(s));
+                List<String> nResult = applyGeneralSpecialOffer(getItemQuantity(s), 3, 0, getItemName(s));
                 itemsToAdd.addAll(nResult);
                 itemsToRemove.add(s);
             }
 
             if (s.contains("R")) {
-                List<String> nResult = decompose(getIntPrefix(s), 3, 0, getStringSuffix(s));
+                List<String> nResult = applyGeneralSpecialOffer(getItemQuantity(s), 3, 0, getItemName(s));
                 itemsToAdd.addAll(nResult);
                 itemsToRemove.add(s);
             }
 
             if (s.contains("U")) {
-                List<String> nResult = decompose(getIntPrefix(s), 3, 0, getStringSuffix(s));
+                List<String> nResult = applyGeneralSpecialOffer(getItemQuantity(s), 3, 0, getItemName(s));
                 itemsToAdd.addAll(nResult);
                 itemsToRemove.add(s);
             }
 
             if (s.contains("V")) {
-                List<String> nResult = decompose(getIntPrefix(s), 2, 3, getStringSuffix(s));
+                List<String> nResult = applyGeneralSpecialOffer(getItemQuantity(s), 2, 3, getItemName(s));
                 itemsToAdd.addAll(nResult);
                 itemsToRemove.add(s);
             }
         }
 
-        compressedValues.removeAll(itemsToRemove);
-        compressedValues.addAll(itemsToAdd);
+        orderList.removeAll(itemsToRemove);
+        orderList.addAll(itemsToAdd);
 
         itemsToAdd.clear();
         itemsToRemove.clear();
 
-        for (String s: compressedValues) {
+        for (String s: orderList) {
             if (s.contains("B")) {
                 itemsToRemove.add(s);
-                itemsToAdd.addAll(decompose(getIntPrefix(s), 1, 0, getStringSuffix(s)));
+                itemsToAdd.addAll(applyGeneralSpecialOffer(getItemQuantity(s), 1, 0, getItemName(s)));
             }
 
             if (s.contains("M")) {
                 itemsToRemove.add(s);
-                itemsToAdd.addAll(decompose(getIntPrefix(s), 1, 0, getStringSuffix(s)));
+                itemsToAdd.addAll(applyGeneralSpecialOffer(getItemQuantity(s), 1, 0, getItemName(s)));
             }
 
             if (s.contains("Q")) {
                 itemsToRemove.add(s);
-                itemsToAdd.addAll(decompose(getIntPrefix(s), 1, 0, getStringSuffix(s)));
+                itemsToAdd.addAll(applyGeneralSpecialOffer(getItemQuantity(s), 1, 0, getItemName(s)));
             }
         }
 
-        compressedValues.removeAll(itemsToRemove);
-        compressedValues.addAll(itemsToAdd);
+        orderList.removeAll(itemsToRemove);
+        orderList.addAll(itemsToAdd);
 
         itemsToAdd.clear();
         itemsToRemove.clear();
 
-        for (String s: compressedValues) {
+        for (String s: orderList) {
             if (s.equals("2E")) {
                 itemsToRemove.add("1B");
             }
@@ -139,12 +137,12 @@ public class CheckoutSolution {
             }
         }
 
-        itemsToRemove.forEach(compressedValues::remove);
+        itemsToRemove.forEach(orderList::remove);
 
         int countForB = 0;
         int countForM = 0;
         int countForQ = 0;
-        for (String s: compressedValues) {
+        for (String s: orderList) {
             if (s.contains("B")) {
                 itemsToRemove.add(s);
                 countForB++;
@@ -162,37 +160,37 @@ public class CheckoutSolution {
         }
 
         if (countForB > 0) {
-            itemsToAdd.addAll(decompose(countForB, 2, 0, "B"));
+            itemsToAdd.addAll(applyGeneralSpecialOffer(countForB, 2, 0, "B"));
         }
 
         if (countForM > 0) {
-            itemsToAdd.addAll(decompose(countForM, 1, 0, "M"));
+            itemsToAdd.addAll(applyGeneralSpecialOffer(countForM, 1, 0, "M"));
         }
 
         if (countForQ > 0) {
-            itemsToAdd.addAll(decompose(countForQ, 3, 0, "Q"));
+            itemsToAdd.addAll(applyGeneralSpecialOffer(countForQ, 3, 0, "Q"));
         }
 
-        compressedValues.removeAll(itemsToRemove);
-        compressedValues.addAll(itemsToAdd);
+        orderList.removeAll(itemsToRemove);
+        orderList.addAll(itemsToAdd);
 
         int total = 0;
 
-        compressedValues.sort(new CustomComparatorClass(PriceListDataWareHouse.priceList));
+        orderList.sort(new CustomComparatorClass(PriceListDataWareHouse.priceList));
 
-        if (isGroupPricingPresentIn(compressedValues)) {
-            updateListForSpecialOffersItemGrouping(compressedValues);
+        if (isGroupPricingPresentIn(orderList)) {
+            updateListForSpecialOffersItemGrouping(orderList);
         }
 
-        for (String s : compressedValues) {
+        for (String s : orderList) {
             if (PriceListDataWareHouse.priceList.containsKey(s)) {
                 total = total + PriceListDataWareHouse.priceList.getOrDefault(s, 0);
             }
         }
 
-        if (compressedValues.contains("2F") && !compressedValues.contains("1F")) {
+        if (orderList.contains("2F") && !orderList.contains("1F")) {
             int count2F = 0;
-            for(String s : compressedValues) {
+            for(String s : orderList) {
                 if (s.equals("2F")) {
                     count2F++;
                 }
@@ -201,10 +199,10 @@ public class CheckoutSolution {
             total = total - ((count2F - 1) * PriceListDataWareHouse.priceList.getOrDefault("1F", 0));
         }
 
-        if (compressedValues.contains("2F") && compressedValues.contains("1F")) {
+        if (orderList.contains("2F") && orderList.contains("1F")) {
             int count1F = 0;
             int count2F = 0;
-            for(String s : compressedValues) {
+            for(String s : orderList) {
                 if (s.contains("1F")) {
                     count1F++;
                 }
@@ -215,9 +213,9 @@ public class CheckoutSolution {
             total = total - (Math.min(count1F, count2F) * PriceListDataWareHouse.priceList.getOrDefault("1F", 0));
         }
 
-        if (compressedValues.contains("3U") && !compressedValues.contains("1U")) {
+        if (orderList.contains("3U") && !orderList.contains("1U")) {
             int count3U = 0;
-            for(String s : compressedValues) {
+            for(String s : orderList) {
                 if (s.equals("3U")) {
                     count3U++;
                 }
@@ -226,10 +224,10 @@ public class CheckoutSolution {
             total = total - ((count3U - 1) * PriceListDataWareHouse.priceList.getOrDefault("1U", 0));
         }
 
-        if (compressedValues.contains("3U") && compressedValues.contains("1U")) {
+        if (orderList.contains("3U") && orderList.contains("1U")) {
             int count1U = 0;
             int count3U = 0;
-            for(String s : compressedValues) {
+            for(String s : orderList) {
                 if (s.contains("1U")) {
                     count1U++;
                 }
@@ -298,7 +296,7 @@ public class CheckoutSolution {
 
     }
 
-    public Integer getIntPrefix(String s) {
+    public Integer getItemQuantity(String s) {
         String result = "";
         char[] chars = s.toCharArray();
         for (char c : chars) {
@@ -310,7 +308,7 @@ public class CheckoutSolution {
         return Integer.valueOf(result);
     }
 
-    public String getStringSuffix(String s) {
+    public String getItemName(String s) {
         String result = "";
         char[] chars = s.toCharArray();
         for (char c : chars) {
@@ -322,7 +320,46 @@ public class CheckoutSolution {
         return result;
     }
 
-    public List<String> decompose(Integer countM, Integer minModM, Integer maxModM, String s) {
+    public String getItemSum(String s) {
+        int count = 0;
+        char[] chars = s.toCharArray();
+        for(int i = 0; i < chars.length; i++) {
+            count++;
+        }
+
+        return count + (String.valueOf(chars[0]));
+    }
+
+    public List<String> placeOrder(char[] items) {
+        String bundle = "";
+        List<String> result = new ArrayList<>();
+        for (int i = 0; i < items.length; i++) {
+            while (i < items.length - 1 && items[i] == items[i+1]
+                && (SpecialOffers.specialOfferItems.contains(items[i]))) {
+                bundle = bundle.concat(String.valueOf(items[i]));
+                i++;
+            }
+
+            bundle = bundle.concat(String.valueOf(items[i]));
+            result.add(getItemSum(bundle));
+            bundle = "";
+        }
+
+        return result;
+    }
+}
+
+class SpecialOffers {
+
+    public static final List<Character> specialOfferItems =
+        List.of('A', 'B', 'E', 'F', 'H', 'K', 'N', 'P', 'Q', 'R', 'U', 'V');
+
+    public SpecialOffers() {
+
+    }
+
+
+    public List<String> applyGeneralSpecialOffer(Integer countM, Integer minModM, Integer maxModM, String s) {
         List<String> list = new ArrayList<>();
         int sum = 0;
         int mod = 0;
@@ -371,39 +408,6 @@ public class CheckoutSolution {
 
         return list;
     }
-
-    public String getStringValue(String s) {
-        int count = 0;
-        char[] chars = s.toCharArray();
-        for(int i = 0; i < chars.length; i++) {
-            count++;
-        }
-
-        return count + (String.valueOf(chars[0]));
-    }
-
-    public List<String> compress(char[] items) {
-        String bundle = "";
-        List<String> result = new ArrayList<>();
-        for (int i = 0; i < items.length; i++) {
-            while (i < items.length - 1 && items[i] == items[i+1]
-                && (SpecialOffers.specialOfferItems.contains(items[i]))) {
-                bundle = bundle.concat(String.valueOf(items[i]));
-                i++;
-            }
-
-            bundle = bundle.concat(String.valueOf(items[i]));
-            result.add(getStringValue(bundle));
-            bundle = "";
-        }
-
-        return result;
-    }
-}
-
-class SpecialOffers {
-    public static final List<Character> specialOfferItems =
-        List.of('A', 'B', 'E', 'F', 'H', 'K', 'N', 'P', 'Q', 'R', 'U', 'V');
 }
 
 class PriceListDataWareHouse {
@@ -432,6 +436,7 @@ class PriceListDataWareHouse {
         priceList.put("3Q", 80); priceList.put("3R", 150); priceList.put("3U", 120); priceList.put("2V", 90);
         priceList.put("3V", 130); priceList.put("1Group", 45);
     }
+
 }
 
 class CustomComparatorClass implements Comparator<String> {
@@ -452,4 +457,5 @@ class CustomComparatorClass implements Comparator<String> {
         }
     }
 }
+
 
