@@ -1,2 +1,4 @@
-package befaster.solutions.CHK;public class SpecialDeal {
+package befaster.solutions.CHK;
+
+public class SpecialDeal {
 }

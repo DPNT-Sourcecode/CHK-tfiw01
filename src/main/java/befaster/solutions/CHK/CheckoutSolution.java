@@ -11,7 +11,7 @@ public class CheckoutSolution {
         Arrays.sort(items);
 
         for (char item : items) {
-            if (!PriceListDataWareHouse.priceList.containsKey(String.valueOf(item))) {
+            if (!DataWarehouse.priceList.containsKey(String.valueOf(item))) {
                 return -1;
             }
         }
@@ -23,15 +23,15 @@ public class CheckoutSolution {
 
         int total = 0;
 
-        orderList.sort(new CustomComparatorClass(PriceListDataWareHouse.priceList));
+        orderList.sort(new CustomComparatorClass(DataWarehouse.priceList));
 
         if (specialOffers.isGroupPricingPresentIn(orderList)) {
             specialOffers.updateOrderListForSpecialOffersItemGrouping(orderList);
         }
 
         for (String s : orderList) {
-            if (PriceListDataWareHouse.priceList.containsKey(s)) {
-                total = total + PriceListDataWareHouse.priceList.getOrDefault(s, 0);
+            if (DataWarehouse.priceList.containsKey(s)) {
+                total = total + DataWarehouse.priceList.getOrDefault(s, 0);
             }
         }
 
@@ -45,7 +45,7 @@ public class CheckoutSolution {
         List<String> result = new ArrayList<>();
         for (int i = 0; i < items.length; i++) {
             while (i < items.length - 1 && items[i] == items[i+1]
-                && (SpecialOffers.specialOfferItems.contains(items[i]))) {
+                && (DataWarehouse.specialOfferItems.contains(items[i]))) {
                 bundle = bundle.concat(String.valueOf(items[i]));
                 i++;
             }

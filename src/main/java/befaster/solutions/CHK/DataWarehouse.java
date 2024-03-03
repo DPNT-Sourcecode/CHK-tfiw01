@@ -1,9 +1,12 @@
 package befaster.solutions.CHK;
 
 import java.util.HashMap;
+import java.util.List;
 
-public class PriceListDataWareHouse {
+public class DataWarehouse {
     public static final HashMap<String, Integer> priceList;
+    public static final List<SpecialOffer> specialOfferData;
+    public static final List<Character> specialOfferItems;
 
     static {
         priceList = new HashMap<>();
@@ -85,6 +88,71 @@ public class PriceListDataWareHouse {
         priceList.put("2V", 90);
         priceList.put("3V", 130);
         priceList.put("1Group", 45);
+
+        specialOfferData = List.of(
+            SpecialOffer.Builder.builder()
+                .item('A')
+                .lowerBoundOffer(3)
+                .upperBoundOffer(5)
+                .build(),
+            SpecialOffer.Builder.builder()
+                .item('B')
+                .lowerBoundOffer(2)
+                .upperBoundOffer(0)
+                .build(),
+            SpecialOffer.Builder.builder()
+                .item('E')
+                .lowerBoundOffer(2)
+                .upperBoundOffer(0)
+                .build(),
+            SpecialOffer.Builder.builder()
+                .item('F')
+                .lowerBoundOffer(2)
+                .upperBoundOffer(0)
+                .build(),
+            SpecialOffer.Builder.builder()
+                .item('H')
+                .lowerBoundOffer(5)
+                .upperBoundOffer(10)
+                .build(),
+            SpecialOffer.Builder.builder()
+                .item('K')
+                .lowerBoundOffer(2)
+                .upperBoundOffer(0)
+                .build(),
+            SpecialOffer.Builder.builder()
+                .item('N')
+                .lowerBoundOffer(3)
+                .upperBoundOffer(0)
+                .build(),
+            SpecialOffer.Builder.builder()
+                .item('P')
+                .lowerBoundOffer(5)
+                .upperBoundOffer(0)
+                .build(),
+            SpecialOffer.Builder.builder()
+                .item('Q')
+                .lowerBoundOffer(3)
+                .upperBoundOffer(0)
+                .build(),
+            SpecialOffer.Builder.builder()
+                .item('R')
+                .lowerBoundOffer(3)
+                .upperBoundOffer(0)
+                .build(),
+            SpecialOffer.Builder.builder()
+                .item('U')
+                .lowerBoundOffer(3)
+                .upperBoundOffer(0)
+                .build(),
+            SpecialOffer.Builder.builder()
+                .item('V')
+                .lowerBoundOffer(2)
+                .upperBoundOffer(3)
+                .build()
+        );
+
+        specialOfferItems = specialOfferData.stream().map(SpecialOffer::getItem).toList();
     }
 
 }

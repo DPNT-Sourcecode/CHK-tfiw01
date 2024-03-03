@@ -1,2 +1,4 @@
-package befaster.solutions.CHK;public class SpecialGroup {
+package befaster.solutions.CHK;
+
+public class SpecialGroup {
 }

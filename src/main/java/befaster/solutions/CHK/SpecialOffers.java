@@ -5,9 +5,6 @@ import java.util.List;
 
 public class SpecialOffers {
 
-    public static final List<Character> specialOfferItems =
-        List.of('A', 'B', 'E', 'F', 'H', 'K', 'N', 'P', 'Q', 'R', 'U', 'V');
-
     public SpecialOffers() {}
 
     public List<String> applySpecialOffer(Integer countM, Integer lowerBoundOffer, Integer upperBoundOffer, String s) {
@@ -65,88 +62,15 @@ public class SpecialOffers {
         List<String> itemsToAdd = new ArrayList<>();
 
         for (String s : orderList) {
-            if (s.contains("A")) {
-                List<String> nResult = applySpecialOffer(HelperUtils.getItemQuantity(s),
-                    3, 5, HelperUtils.getItemName(s));
-                itemsToAdd.addAll(nResult);
-                itemsToRemove.add(s);
-            }
-
-            if (s.contains("B")) {
-                List<String> nResult = applySpecialOffer(HelperUtils.getItemQuantity(s),
-                    2, 0, HelperUtils.getItemName(s));
-                itemsToAdd.addAll(nResult);
-                itemsToRemove.add(s);
-            }
-
-            if (s.contains("E")) {
-                List<String> nResult = applySpecialOffer(HelperUtils.getItemQuantity(s),
-                    2, 0, HelperUtils.getItemName(s));
-                itemsToAdd.addAll(nResult);
-                itemsToRemove.add(s);
-            }
-
-            if (s.contains("F")) {
-                List<String> nResult = applySpecialOffer(HelperUtils.getItemQuantity(s),
-                    2, 0, HelperUtils.getItemName(s));
-                itemsToAdd.addAll(nResult);
-                itemsToRemove.add(s);
-            }
-
-            if (s.contains("H")) {
-                List<String> nResult = applySpecialOffer(HelperUtils.getItemQuantity(s),
-                    5, 10, HelperUtils.getItemName(s));
-                itemsToAdd.addAll(nResult);
-                itemsToRemove.add(s);
-            }
-
-            if (s.contains("K")) {
-                List<String> nResult = applySpecialOffer(HelperUtils.getItemQuantity(s),
-                    2, 0, HelperUtils.getItemName(s));
-                itemsToAdd.addAll(nResult);
-                itemsToRemove.add(s);
-            }
-
-            if (s.contains("N")) {
-                List<String> nResult = applySpecialOffer(HelperUtils.getItemQuantity(s),
-                    3, 0, HelperUtils.getItemName(s));
-                itemsToAdd.addAll(nResult);
-                itemsToRemove.add(s);
-            }
-
-            if (s.contains("P")) {
-                List<String> nResult = applySpecialOffer(HelperUtils.getItemQuantity(s),
-                    5, 0, HelperUtils.getItemName(s));
-                itemsToAdd.addAll(nResult);
-                itemsToRemove.add(s);
-            }
-
-            if (s.contains("Q")) {
-                List<String> nResult = applySpecialOffer(HelperUtils.getItemQuantity(s),
-                    3, 0, HelperUtils.getItemName(s));
-                itemsToAdd.addAll(nResult);
-                itemsToRemove.add(s);
-            }
-
-            if (s.contains("R")) {
-                List<String> nResult = applySpecialOffer(HelperUtils.getItemQuantity(s),
-                    3, 0, HelperUtils.getItemName(s));
-                itemsToAdd.addAll(nResult);
-                itemsToRemove.add(s);
-            }
-
-            if (s.contains("U")) {
-                List<String> nResult = applySpecialOffer(HelperUtils.getItemQuantity(s),
-                    3, 0, HelperUtils.getItemName(s));
-                itemsToAdd.addAll(nResult);
-                itemsToRemove.add(s);
-            }
-
-            if (s.contains("V")) {
-                List<String> nResult = applySpecialOffer(HelperUtils.getItemQuantity(s),
-                    2, 3, HelperUtils.getItemName(s));
-                itemsToAdd.addAll(nResult);
-                itemsToRemove.add(s);
+            for (SpecialOffer specialOfferDatum : DataWarehouse.specialOfferData) {
+                if (s.contains(String.valueOf(specialOfferDatum.getItem()))) {
+                    List<String> nResult =
+                        applySpecialOffer(HelperUtils.getItemQuantity(s), specialOfferDatum.getLowerBoundOffer(),
+                            specialOfferDatum.getUpperBoundOffer(), HelperUtils.getItemName(s));
+                    itemsToAdd.addAll(nResult);
+                    itemsToRemove.add(s);
+                    break;
+                }
             }
         }
 
@@ -295,7 +219,7 @@ public class SpecialOffers {
                 }
             }
 
-            total = total - ((count2F - 1) * PriceListDataWareHouse.priceList.getOrDefault("1F", 0));
+            total = total - ((count2F - 1) * DataWarehouse.priceList.getOrDefault("1F", 0));
         }
 
         if (orderList.contains("2F") && orderList.contains("1F")) {
@@ -309,7 +233,7 @@ public class SpecialOffers {
                     count2F++;
                 }
             }
-            total = total - (Math.min(count1F, count2F) * PriceListDataWareHouse.priceList.getOrDefault("1F", 0));
+            total = total - (Math.min(count1F, count2F) * DataWarehouse.priceList.getOrDefault("1F", 0));
         }
 
         if (orderList.contains("3U") && !orderList.contains("1U")) {
@@ -320,7 +244,7 @@ public class SpecialOffers {
                 }
             }
 
-            total = total - ((count3U - 1) * PriceListDataWareHouse.priceList.getOrDefault("1U", 0));
+            total = total - ((count3U - 1) * DataWarehouse.priceList.getOrDefault("1U", 0));
         }
 
         if (orderList.contains("3U") && orderList.contains("1U")) {
@@ -335,7 +259,7 @@ public class SpecialOffers {
                 }
             }
 
-            total = total - (Math.min(count1U, count3U) * PriceListDataWareHouse.priceList.getOrDefault("1U", 0));
+            total = total - (Math.min(count1U, count3U) * DataWarehouse.priceList.getOrDefault("1U", 0));
         }
 
         return total;
