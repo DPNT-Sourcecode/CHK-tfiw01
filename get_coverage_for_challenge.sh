@@ -36,4 +36,3 @@ else
     echo "No coverage report was found"
     exit 255
 fi
-

@@ -254,5 +254,3 @@ public class SpecialOffers {
         return total;
     }
 }
-
-
