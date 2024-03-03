@@ -43,5 +43,3 @@ public class CheckoutSolutionTest {
         assertThat(checkoutSolution.checkout("LGCKAQXFOSKZGIWHNRNDITVBUUEOZXPYAVFDEPTBMQLYJRSMJCWH"), equalTo(1602));
     }
 }
-
-

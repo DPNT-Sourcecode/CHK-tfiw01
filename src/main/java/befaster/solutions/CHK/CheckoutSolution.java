@@ -436,13 +436,12 @@ class CustomComparatorClass implements Comparator<String> {
 
     @Override
     public int compare(String s, String t1) {
-        if (dataMap.get(s) >= dataMap.get(t1)) {
+        if (dataMap.get(s) > dataMap.get(t1)) {
             return -1;
+        } else if (dataMap.get(s) < dataMap.get(t1)) {
+            return 1;
         } else {
             return 0;
         }
     }
 }
-
-
-
