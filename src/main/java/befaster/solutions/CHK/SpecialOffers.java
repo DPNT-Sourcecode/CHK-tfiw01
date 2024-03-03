@@ -58,6 +58,9 @@ public class SpecialOffers {
     }
 
     public void applySpecialOffer(List<String> orderList) {
+        int countForB = 0;
+        int countForM = 0;
+        int countForQ = 0;
         List<String> itemsToRemove = new ArrayList<>();
         List<String> itemsToAdd = new ArrayList<>();
 
@@ -120,9 +123,7 @@ public class SpecialOffers {
 
         itemsToRemove.forEach(orderList::remove);
 
-        int countForB = 0;
-        int countForM = 0;
-        int countForQ = 0;
+
         for (String s : orderList) {
             if (s.contains("B")) {
                 itemsToRemove.add(s);
@@ -265,3 +266,4 @@ public class SpecialOffers {
         return total;
     }
 }
+

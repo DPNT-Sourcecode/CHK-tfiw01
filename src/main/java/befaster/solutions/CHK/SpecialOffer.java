@@ -1,6 +1,6 @@
 package befaster.solutions.CHK;
 
-//Pattern ===> X item for X amount
+//Example ===> 5A for 200
 public class SpecialOffer {
     private final Character item;
     private final int lowerBoundOffer;
@@ -57,3 +57,4 @@ public class SpecialOffer {
         }
     }
 }
+
