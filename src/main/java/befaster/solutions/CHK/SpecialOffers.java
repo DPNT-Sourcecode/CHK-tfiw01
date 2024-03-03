@@ -84,22 +84,14 @@ public class SpecialOffers {
         itemsToRemove.clear();
 
         for (String s : orderList) {
-            if (s.contains("B")) {
-                itemsToRemove.add(s);
-                itemsToAdd.addAll(applySpecialOffer(HelperUtils.getItemQuantity(s),
-                    1, 0, HelperUtils.getItemName(s)));
-            }
-
-            if (s.contains("M")) {
-                itemsToRemove.add(s);
-                itemsToAdd.addAll(applySpecialOffer(HelperUtils.getItemQuantity(s),
-                    1, 0, HelperUtils.getItemName(s)));
-            }
-
-            if (s.contains("Q")) {
-                itemsToRemove.add(s);
-                itemsToAdd.addAll(applySpecialOffer(HelperUtils.getItemQuantity(s),
-                    1, 0, HelperUtils.getItemName(s)));
+            for (SpecialDeal specialDealDatum : DataWarehouse.specialDealData) {
+                if (s.contains(String.valueOf(specialDealDatum.getFreeItem()))) {
+                    itemsToRemove.add(s);
+                    itemsToAdd.addAll(applySpecialOffer(HelperUtils.getItemQuantity(s),
+                        specialDealDatum.getLowerBoundOffer(), specialDealDatum.getUpperBoundOffer(),
+                        HelperUtils.getItemName(s)));
+                    break;
+                }
             }
         }
 
@@ -110,19 +102,15 @@ public class SpecialOffers {
         itemsToRemove.clear();
 
         for (String s : orderList) {
-            if (s.equals("2E")) {
-                itemsToRemove.add("1B");
-            }
-            if (s.equals("3N")) {
-                itemsToRemove.add("1M");
-            }
-            if (s.equals("3R")) {
-                itemsToRemove.add("1Q");
+            for (SpecialDeal specialDealDatum : DataWarehouse.specialDealData) {
+                if (s.contains(String.valueOf(specialDealDatum.getEligibilityQuota()))) {
+                    itemsToRemove.add(specialDealDatum.getFreeItemAlias());
+                    break;
+                }
             }
         }
 
         itemsToRemove.forEach(orderList::remove);
-
 
         for (String s : orderList) {
             if (s.contains("B")) {
@@ -266,4 +254,5 @@ public class SpecialOffers {
         return total;
     }
 }
+
 

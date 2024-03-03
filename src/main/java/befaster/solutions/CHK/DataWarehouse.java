@@ -5,8 +5,9 @@ import java.util.List;
 
 public class DataWarehouse {
     public static final HashMap<String, Integer> priceList;
-    public static final List<SpecialOffer> specialOfferData;
     public static final List<Character> specialOfferItems;
+    public static final List<SpecialOffer> specialOfferData;
+    public static final List<SpecialDeal> specialDealData;
 
     static {
         priceList = new HashMap<>();
@@ -152,7 +153,32 @@ public class DataWarehouse {
                 .build()
         );
 
+        specialDealData = List.of(
+            SpecialDeal.Builder.builder()
+                .freeItem('B')
+                .freeItemAlias("1B")
+                .lowerBoundOffer(1)
+                .upperBoundOffer(0)
+                .eligibilityQuota("2E")
+                .build(),
+            SpecialDeal.Builder.builder()
+                .freeItem('M')
+                .freeItemAlias("1M")
+                .lowerBoundOffer(1)
+                .upperBoundOffer(0)
+                .eligibilityQuota("3N")
+                .build(),
+            SpecialDeal.Builder.builder()
+                .freeItem('Q')
+                .freeItemAlias("1Q")
+                .lowerBoundOffer(1)
+                .upperBoundOffer(0)
+                .eligibilityQuota("3R")
+                .build()
+        );
+
         specialOfferItems = specialOfferData.stream().map(SpecialOffer::getItem).toList();
     }
 
 }
+
