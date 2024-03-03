@@ -3,7 +3,7 @@ package befaster.solutions.CHK;
 import java.util.Comparator;
 import java.util.HashMap;
 
-class CustomComparatorClass implements Comparator<String> {
+public class CustomComparatorClass implements Comparator<String> {
 
     private final HashMap<String, Integer> dataMap;
 
@@ -22,4 +22,5 @@ class CustomComparatorClass implements Comparator<String> {
         }
     }
 }
+
 

@@ -1,6 +1,6 @@
 package befaster.solutions.CHK;
 
-class HelperUtils {
+public class HelperUtils {
     public static Integer getItemQuantity(String s) {
         String result = "";
         char[] chars = s.toCharArray();
@@ -36,4 +36,5 @@ class HelperUtils {
     }
 
 }
+
 

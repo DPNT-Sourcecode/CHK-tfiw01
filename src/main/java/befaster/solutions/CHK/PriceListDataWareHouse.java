@@ -2,7 +2,7 @@ package befaster.solutions.CHK;
 
 import java.util.HashMap;
 
-class PriceListDataWareHouse {
+public class PriceListDataWareHouse {
     public static final HashMap<String, Integer> priceList;
 
     static {
@@ -88,4 +88,5 @@ class PriceListDataWareHouse {
     }
 
 }
+
 

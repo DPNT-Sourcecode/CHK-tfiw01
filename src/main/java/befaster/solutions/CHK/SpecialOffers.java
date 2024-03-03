@@ -3,7 +3,7 @@ package befaster.solutions.CHK;
 import java.util.ArrayList;
 import java.util.List;
 
-class SpecialOffers {
+public class SpecialOffers {
 
     public static final List<Character> specialOfferItems = List.of('A', 'B', 'E', 'F', 'H', 'K', 'N', 'P', 'Q', 'R', 'U', 'V');
 
@@ -326,5 +326,6 @@ class SpecialOffers {
         return total;
     }
 }
+
 
 

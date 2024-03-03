@@ -35,6 +35,8 @@ public class CheckoutSolution {
             }
         }
 
+        total = specialOffers.applyIdenticalItemDiscounts(total, orderList);
+
         return total;
     }
 
@@ -56,5 +58,6 @@ public class CheckoutSolution {
         return result;
     }
 }
+
 
 
