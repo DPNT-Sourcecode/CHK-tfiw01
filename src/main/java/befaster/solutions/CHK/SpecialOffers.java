@@ -98,7 +98,8 @@ public class SpecialOffers {
         for (String s : orderList) {
             for (SpecialDeal specialDealDatum : DataWarehouse.specialDealData) {
                 if (s.contains(String.valueOf(specialDealDatum.getEligibilityQuota()))) {
-                    itemsToRemove.add(specialDealDatum.getFreeItemAlias());
+                    itemsToRemove.add(s);
+                    specialDealDatum.setCummulativeValue(specialDealDatum.getCummulativeValue() + 1);
                     break;
                 }
             }
@@ -243,5 +244,6 @@ public class SpecialOffers {
         return total;
     }
 }
+
 
 

@@ -56,6 +56,10 @@ public class SpecialDeal {
         return cummulativeValue;
     }
 
+    public void incrementCummulativeValue() {
+        this.cummulativeValue++;
+    }
+
     public static final class Builder {
         private Character freeItem;
         private String freeItemAlias;
@@ -120,4 +124,5 @@ public class SpecialDeal {
         }
     }
 }
+
 
