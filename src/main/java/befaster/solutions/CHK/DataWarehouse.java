@@ -158,7 +158,7 @@ public class DataWarehouse {
                 .freeItem('B')
                 .freeItemAlias("1B")
                 .lowerBoundOffer(1)
-                .cummulativeUpperBoundOffer(2)
+                .cummulativeLowerBoundOffer(2)
                 .upperBoundOffer(0)
                 .cummulativeUpperBoundOffer(0)
                 .eligibilityQuota("2E")
@@ -168,7 +168,7 @@ public class DataWarehouse {
                 .freeItem('M')
                 .freeItemAlias("1M")
                 .lowerBoundOffer(1)
-                .cummulativeUpperBoundOffer(1)
+                .cummulativeLowerBoundOffer(1)
                 .upperBoundOffer(0)
                 .cummulativeUpperBoundOffer(0)
                 .eligibilityQuota("3N")
@@ -178,7 +178,7 @@ public class DataWarehouse {
                 .freeItem('Q')
                 .freeItemAlias("1Q")
                 .lowerBoundOffer(1)
-                .cummulativeUpperBoundOffer(3)
+                .cummulativeLowerBoundOffer(3)
                 .upperBoundOffer(0)
                 .cummulativeUpperBoundOffer(0)
                 .eligibilityQuota("3R")
@@ -190,3 +190,4 @@ public class DataWarehouse {
     }
 
 }
+
