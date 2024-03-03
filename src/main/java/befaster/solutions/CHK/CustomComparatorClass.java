@@ -22,5 +22,3 @@ public class CustomComparatorClass implements Comparator<String> {
         }
     }
 }
-
-
