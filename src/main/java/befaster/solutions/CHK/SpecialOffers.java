@@ -96,6 +96,12 @@ public class SpecialOffers {
         itemsToRemove.forEach(orderList::remove);
 
         for (String s : orderList) {
+            for (SpecialDeal specialDealDatum : DataWarehouse.specialDealData) {
+                if (s.contains(String.valueOf(specialDealDatum.getEligibilityQuota()))) {
+                    itemsToRemove.add(specialDealDatum.getFreeItemAlias());
+                    break;
+                }
+            }
             if (s.contains("B")) {
                 itemsToRemove.add(s);
                 countForB++;
@@ -237,4 +243,5 @@ public class SpecialOffers {
         return total;
     }
 }
+
 

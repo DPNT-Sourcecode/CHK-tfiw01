@@ -158,22 +158,31 @@ public class DataWarehouse {
                 .freeItem('B')
                 .freeItemAlias("1B")
                 .lowerBoundOffer(1)
+                .cummulativeUpperBoundOffer(2)
                 .upperBoundOffer(0)
+                .cummulativeUpperBoundOffer(0)
                 .eligibilityQuota("2E")
+                .cummulativeValue(0)
                 .build(),
             SpecialDeal.Builder.builder()
                 .freeItem('M')
                 .freeItemAlias("1M")
                 .lowerBoundOffer(1)
+                .cummulativeUpperBoundOffer(2)
                 .upperBoundOffer(0)
+                .cummulativeUpperBoundOffer(0)
                 .eligibilityQuota("3N")
+                .cummulativeValue(0)
                 .build(),
             SpecialDeal.Builder.builder()
                 .freeItem('Q')
                 .freeItemAlias("1Q")
                 .lowerBoundOffer(1)
+                .cummulativeUpperBoundOffer(2)
                 .upperBoundOffer(0)
+                .cummulativeUpperBoundOffer(0)
                 .eligibilityQuota("3R")
+                .cummulativeValue(0)
                 .build()
         );
 
@@ -181,3 +190,4 @@ public class DataWarehouse {
     }
 
 }
+
