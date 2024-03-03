@@ -33,14 +33,15 @@ public class CheckoutSolutionTest {
 //        assertThat(checkoutSolution.checkout("UUUUUUUU"), equalTo(240));
 //        assertThat(checkoutSolution.checkout("UUUUU"), equalTo(160));
 //        assertThat(checkoutSolution.checkout("NNN"), equalTo(120));
-//        assertThat(checkoutSolution.checkout("NNNM"), equalTo(120));
+        assertThat(checkoutSolution.checkout("NNNMM"), equalTo(120));
 //        assertThat(checkoutSolution.checkout("STX"), equalTo(45));
 //        assertThat(checkoutSolution.checkout("STXSTX"), equalTo(90));
 //        assertThat(checkoutSolution.checkout("SSS"), equalTo(45));
 //        assertThat(checkoutSolution.checkout("STXS"), equalTo(62));
 //        assertThat(checkoutSolution.checkout("SSSZ"), equalTo(65));
 //        assertThat(checkoutSolution.checkout("STXYZSTXYZ"), equalTo(152));
-        assertThat(checkoutSolution.checkout("ABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZ"), equalTo(1602));
+//        assertThat(checkoutSolution.checkout("ABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZ"), equalTo(1602));
 //        assertThat(checkoutSolution.checkout("LGCKAQXFOSKZGIWHNRNDITVBUUEOZXPYAVFDEPTBMQLYJRSMJCWH"), equalTo(1602));
     }
 }
+
