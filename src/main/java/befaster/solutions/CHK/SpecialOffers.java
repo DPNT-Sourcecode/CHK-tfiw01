@@ -15,24 +15,7 @@ public class SpecialOffers {
         if (upperBoundOffer == 0) {
             mod = lowerBoundOffer;
         } else {
-            if (countM < lowerBoundOffer && countM < upperBoundOffer) {
-                mod = lowerBoundOffer;
-            }
-            if (countM > lowerBoundOffer && countM < upperBoundOffer) {
-                mod = lowerBoundOffer;
-            }
-            if (countM > lowerBoundOffer && countM > upperBoundOffer) {
-                mod = upperBoundOffer;
-            }
-            if (countM < lowerBoundOffer && countM > upperBoundOffer) {
-                mod = upperBoundOffer;
-            }
-            if (countM.equals(lowerBoundOffer)) {
-                mod = lowerBoundOffer;
-            }
-            if (countM.equals(upperBoundOffer)) {
-                mod = upperBoundOffer;
-            }
+            mod = Math.min(Math.max(countM, lowerBoundOffer), upperBoundOffer);
         }
 
         while (count > 0) {
@@ -254,3 +237,4 @@ public class SpecialOffers {
         return total;
     }
 }
+
