@@ -290,11 +290,12 @@ public class CheckoutSolution {
     public void updateListForSpecialOffersItemGrouping(List<String> items) {
         int count = 0;
         int endLoopCount = 0;
-        int endLoopItemsListCount = items.size();
         List<String> toRemoveList = new ArrayList<>();
         List<String> toAddList = new ArrayList<>();
 
         List<String> lis = List.of("1S", "1T", "1X", "1Y", "1Z");
+
+        int endLoopItemsListCount = items.stream().filter(lis::contains).toList().size();
 
         while (endLoopCount < endLoopItemsListCount) {
             if (items.isEmpty()) {
@@ -308,8 +309,8 @@ public class CheckoutSolution {
                     }
                     toRemoveList.add(eachListItem);
                     count++;
+                    endLoopCount++;
                 }
-                endLoopCount++;
             }
 
             if (count == 3) {
