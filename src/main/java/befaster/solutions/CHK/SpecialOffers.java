@@ -44,6 +44,10 @@ public class SpecialOffers {
         List<String> itemsToRemove = new ArrayList<>();
         List<String> itemsToAdd = new ArrayList<>();
 
+        int countForB = 0;
+        int countForM = 0;
+        int countForQ = 0;
+
         for (SpecialDeal specialDealDatum : DataWarehouse.specialDealData) {
             specialDealDatum.resetCummulativeValue();
         }
@@ -97,48 +101,48 @@ public class SpecialOffers {
         itemsToRemove.forEach(orderList::remove);
 
         for (String s : orderList) {
-            for (SpecialDeal specialDealDatum : DataWarehouse.specialDealData) {
-                if (s.contains(String.valueOf(specialDealDatum.getFreeItem()))) {
-                    itemsToRemove.add(s);
-                    specialDealDatum.incrementCummulativeValue();
-                    break;
-                }
+//            for (SpecialDeal specialDealDatum : DataWarehouse.specialDealData) {
+//                if (s.contains(String.valueOf(specialDealDatum.getFreeItem()))) {
+//                    itemsToRemove.add(s);
+//                    specialDealDatum.incrementCummulativeValue();
+//                    break;
+//                }
+//            }
+            if (s.contains("B")) {
+                itemsToRemove.add(s);
+                countForB++;
             }
-//            if (s.contains("B")) {
-//                itemsToRemove.add(s);
-//                countForB++;
-//            }
-//
-//            if (s.contains("M")) {
-//                itemsToRemove.add(s);
-//                countForM++;
-//            }
-//
-//            if (s.contains("Q")) {
-//                itemsToRemove.add(s);
-//                countForQ++;
-//            }
-        }
 
-        for (SpecialDeal specialDealDatum : DataWarehouse.specialDealData) {
-            if (specialDealDatum.getCummulativeValue() > 0) {
-                itemsToAdd.addAll(applySpecialOffer(specialDealDatum.getCummulativeValue(),
-                    specialDealDatum.getCummulativeLowerBoundOffer(), specialDealDatum.getCummulativeUpperBoundOffer(),
-                    String.valueOf(specialDealDatum.getFreeItem())));
+            if (s.contains("M")) {
+                itemsToRemove.add(s);
+                countForM++;
+            }
+
+            if (s.contains("Q")) {
+                itemsToRemove.add(s);
+                countForQ++;
             }
         }
 
-//        if (countForB > 0) {
-//            itemsToAdd.addAll(applySpecialOffer(countForB, 2, 0, "B"));
+//        for (SpecialDeal specialDealDatum : DataWarehouse.specialDealData) {
+//            if (specialDealDatum.getCummulativeValue() > 0) {
+//                itemsToAdd.addAll(applySpecialOffer(specialDealDatum.getCummulativeValue(),
+//                    specialDealDatum.getCummulativeLowerBoundOffer(), specialDealDatum.getCummulativeUpperBoundOffer(),
+//                    String.valueOf(specialDealDatum.getFreeItem())));
+//            }
 //        }
-//
-//        if (countForM > 0) {
-//            itemsToAdd.addAll(applySpecialOffer(countForM, 1, 0, "M"));
-//        }
-//
-//        if (countForQ > 0) {
-//            itemsToAdd.addAll(applySpecialOffer(countForQ, 3, 0, "Q"));
-//        }
+
+        if (countForB > 0) {
+            itemsToAdd.addAll(applySpecialOffer(countForB, 2, 0, "B"));
+        }
+
+        if (countForM > 0) {
+            itemsToAdd.addAll(applySpecialOffer(countForM, 1, 0, "M"));
+        }
+
+        if (countForQ > 0) {
+            itemsToAdd.addAll(applySpecialOffer(countForQ, 3, 0, "Q"));
+        }
 
         orderList.removeAll(itemsToRemove);
         orderList.addAll(itemsToAdd);
@@ -253,3 +257,4 @@ public class SpecialOffers {
         return total;
     }
 }
+
