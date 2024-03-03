@@ -39,7 +39,9 @@ public class CheckoutSolutionTest {
 //        assertThat(checkoutSolution.checkout("SSS"), equalTo(45));
 //        assertThat(checkoutSolution.checkout("STXS"), equalTo(62));
 //        assertThat(checkoutSolution.checkout("SSSZ"), equalTo(65));
+        assertThat(checkoutSolution.checkout("STXYZSTXYZ"), equalTo(152));
         assertThat(checkoutSolution.checkout("ABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZ"), equalTo(1602));
         assertThat(checkoutSolution.checkout("LGCKAQXFOSKZGIWHNRNDITVBUUEOZXPYAVFDEPTBMQLYJRSMJCWH"), equalTo(1602));
     }
 }
+
