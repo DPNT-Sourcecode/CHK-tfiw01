@@ -3,7 +3,6 @@ package befaster.solutions.CHK;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import befaster.solutions.CHK.CustomComparatorClass;
 
 public class CheckoutSolution {
 
@@ -59,6 +58,7 @@ public class CheckoutSolution {
         return result;
     }
 }
+
 
 
 
